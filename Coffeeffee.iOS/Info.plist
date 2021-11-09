@@ -36,5 +36,9 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+<array>
+    <string>fontello.ttf</string>
+</array>
 </dict>
 </plist>

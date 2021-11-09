@@ -12,12 +12,16 @@
              ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
     <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
 
-        <Label Text="All Products" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
+        <Label Text="WhiteTeeth" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
                TextColor="#FFFFFF" FontSize="32" Margin="32,0,0,0" />
 
-        <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
+        <Button BackgroundColor="#FFFFFF" FontFamily="Icon" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
-                Text="{x:Static icons:Icons.IconShopping}" TextColor="{StaticResource green}" FontSize="20"/>
+                Text="" Style="{StaticResource Icons}"
+                 TextColor="{StaticResource green}" FontSize="20"/>
+      
+        
+
 
         <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
                HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"

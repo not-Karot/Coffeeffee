@@ -9,5 +9,6 @@ namespace Coffeeffee.Styles
         public const string IconShopping = "\ue902";
         public const string IconPaw = "\ue903";
         public const string IconBack = "\ue904";
+        public const string IconProfile = "\ue800";
     }
 }
