@@ -15,13 +15,9 @@
         <Label Text="WhiteTeeth" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
                TextColor="#FFFFFF" FontSize="32" Margin="32,0,0,0" />
 
-        <Button BackgroundColor="#FFFFFF" FontFamily="Icon" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
+        <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
-                Text="" Style="{StaticResource Icons}"
-                 TextColor="{StaticResource green}" FontSize="20"/>
-      
-        
-
+                Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="20"/>
 
         <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
                HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"
@@ -83,15 +79,15 @@
 
 
         <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCoffeeBeans}"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCameraEmpty}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" />
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconPaw}"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeEmpty}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
 
         <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconBuyMeACoffee}"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconProfileEmpty}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24" />
 
     </Grid>

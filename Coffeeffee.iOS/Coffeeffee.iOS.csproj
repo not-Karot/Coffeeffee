@@ -148,7 +148,4 @@
       <Name>Coffeeffee</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\fontello.ttf" />
-  </ItemGroup>
 </Project>
