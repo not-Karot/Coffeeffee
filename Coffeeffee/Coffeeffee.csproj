@@ -31,6 +31,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-Bold.ttf" />
     <EmbeddedResource Include="Fonts\JosefinSans-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\icomoon_prev.ttf" />
     <EmbeddedResource Include="Fonts\icomoon.ttf" />
   </ItemGroup>
 </Project>

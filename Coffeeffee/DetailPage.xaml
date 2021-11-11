@@ -26,7 +26,7 @@
 
             <Button BackgroundColor="{StaticResource white}" Grid.ColumnSpan="3" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="Start"
                 VerticalOptions="Center" CornerRadius="8" Margin="32,0,0,0" Clicked="Back_Clicked"
-                Text="{x:Static icons:Icons.IconBack}" TextColor="{StaticResource green}" FontSize="20"/>
+                Text="{x:Static icons:Icons.IconBackFull}" TextColor="{StaticResource green}" FontSize="20"/>
 
             <ScrollView Grid.Row="2" Grid.ColumnSpan="3" >
                 <Grid Padding="40,32" ColumnSpacing="12">
@@ -61,15 +61,15 @@
             </Grid>
 
             <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconCoffeeBeans}"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconCameraFull}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" />
 
             <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconPaw}"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
 
             <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconBuyMeACoffee}"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconPeopleFull}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24" />
 
         </Grid>
