@@ -18,7 +18,7 @@ namespace Coffeeffee
     {
         SKPaint whitePaint = new SKPaint() { Color = SKColor.Parse("#FFFFFF") };
         SKPath wavePath = SKPath.ParseSvgPathData("M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z");
-
+        
         public MainPage()
         {
             InitializeComponent();
