@@ -119,6 +119,18 @@
     <ImageAsset Include="Assets.xcassets\xamacoffee.imageset\Contents.json">
       <Visible>False</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\tooth_caps.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\tooth_caps.imageset\tooth_caps.jpg" />
+    <ImageAsset Include="Assets.xcassets\tooth_caps.imageset\tooth_caps-1.jpg" />
+    <ImageAsset Include="Assets.xcassets\tooth_caps.imageset\tooth_caps-2.jpg" />
+    <ImageAsset Include="Assets.xcassets\whitening.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\whitening.imageset\whitening.jpeg" />
+    <ImageAsset Include="Assets.xcassets\whitening.imageset\whitening-1.jpeg" />
+    <ImageAsset Include="Assets.xcassets\whitening.imageset\whitening-2.jpeg" />
+    <ImageAsset Include="Assets.xcassets\final_caps.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\final_caps.imageset\final_caps.jpeg" />
+    <ImageAsset Include="Assets.xcassets\final_caps.imageset\final_caps-1.jpeg" />
+    <ImageAsset Include="Assets.xcassets\final_caps.imageset\final_caps-2.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -147,5 +159,10 @@
       <Project>{F37243ED-C440-45D2-96B5-4D92583CAEBA}</Project>
       <Name>Coffeeffee</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\tooth_caps.imageset\" />
+    <Folder Include="Assets.xcassets\whitening.imageset\" />
+    <Folder Include="Assets.xcassets\final_caps.imageset\" />
   </ItemGroup>
 </Project>

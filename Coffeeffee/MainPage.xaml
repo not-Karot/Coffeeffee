@@ -24,7 +24,7 @@
                VerticalOptions="CenterAndExpand">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span TextColor="#FFFFFF" Text="Easily select the right teeth color" />
+                    <Span TextColor="#FFFFFF" Text="Choose the kind of treatment you would like to take" />
                     
                 </FormattedString>
             </Label.FormattedText>
@@ -38,13 +38,13 @@
                   Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
         </Grid>
 
-        <CarouselView ItemsSource="{Binding .}" Grid.Row="1" Grid.ColumnSpan="3" PeekAreaInsets="32,0,96,0"
+        <CarouselView ItemsSource="{Binding .}" Grid.Row="1" Grid.ColumnSpan="3" PeekAreaInsets="65,10,65,10"
                       HorizontalScrollBarVisibility="Never">
             <CarouselView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="24" />
             </CarouselView.ItemsLayout>
             <CarouselView.ItemTemplate>
-                <DataTemplate x:DataType="models:Coffee">
+                <DataTemplate x:DataType="models:Treatment">
                     <Frame HasShadow="False" IsClippedToBounds="True" Padding="20" CornerRadius="20" BackgroundColor="{StaticResource white}">
                         <Grid RowSpacing="16">
                             <Grid.RowDefinitions>
@@ -57,7 +57,6 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-
                             <Image Margin="-24,-24,-24,0" Source="{Binding Image}" Grid.ColumnSpan="2" Aspect="AspectFill"                                   
                             sharedTransitions:Transition.Name="CoffeeImage"
                             sharedTransitions:Transition.Group="{Binding Title}">
@@ -65,12 +64,8 @@
                                     <TapGestureRecognizer Tapped="Image_Tapped" />
                                 </Image.GestureRecognizers>
                             </Image>
-                            <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Title}" />
-                            <Label Grid.Row="2" FontFamily="JosefinSans-Bold" FontSize="40" TextColor="{StaticResource green}" Text="{Binding Price, StringFormat='{0:c}'}" />
+                            <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Title}" HorizontalTextAlignment="Center" />
 
-                            <local:Stepper Grid.Row="2" Grid.Column="1" WidthRequest="120" HorizontalOptions="Start" />
-
-                            <Button Grid.Row="3" Grid.ColumnSpan="2" FontSize="18" Text="Add To Cart" BackgroundColor="{StaticResource brown}" TextColor="{StaticResource white}" FontFamily="JosefinSans-Bold" />
                         </Grid>
                     </Frame>
                 </DataTemplate>
@@ -83,7 +78,7 @@
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" />
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconProfileFull}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
 
         <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"

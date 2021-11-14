@@ -23,14 +23,13 @@ namespace Coffeeffee
         {
             InitializeComponent();
 
-            BindingContext = new List<Coffee>
+            BindingContext = new List<Treatment>
             {
-                new Coffee { Title="XamaCoffee", Price=3.99, Quantity = 1, Image="xamacoffee",
-                    Subtitle="This is the best coffee on Hawaii!",
-                    Description="Coffee brewn on the foothills of Maui. It's nutty aftertaste comes from Depechie's cat, that ate it first. Apparently. Gerald Versluis hops by in a bunny suit."
+                new Treatment { Title="Temporary", Image="tooth_caps",
+                    Subtitle="This is the temporary capsule for your new tooth",
                 },
-                new Coffee { Title="XamaCoffee Deluxe", Price=5.99, Quantity = 1 , Image="xamacoffee", Subtitle="This is the bestest coffee on Hawaii!"},
-                new Coffee { Title="XamaCoffee Super Deluxe", Price=10.99, Quantity = 1, Image="xamacoffee", Subtitle="This is the bestestest coffee on Hawaii!" },
+                new Treatment { Title="Ultimate", Image="final_caps",  Subtitle="This is your new wonderful tooth"}, 
+                new Treatment { Title="Whitening", Image="whitening", Subtitle="This treatment will give you a new wonderful smile" },
             };
         }
 
@@ -60,7 +59,7 @@ namespace Coffeeffee
 
         async void Image_Tapped(System.Object sender, System.EventArgs e)
         {
-            var model = (sender as Image).BindingContext as Coffee;
+            var model = (sender as Image).BindingContext as Treatment;
 
             //this is required in order to pass the views to animate
             SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
