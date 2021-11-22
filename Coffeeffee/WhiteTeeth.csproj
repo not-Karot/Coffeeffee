@@ -22,11 +22,13 @@
     <Folder Include="Models\" />
     <Folder Include="Styles\" />
     <Folder Include="Controls\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Fonts\JosefinSans-Bold.ttf" />
     <None Remove="Fonts\JosefinSans-Regular.ttf" />
     <None Remove="Fonts\icomoon.ttf" />
+    <None Remove="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-Bold.ttf" />

@@ -127,7 +127,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Coffeeffee\Coffeeffee.csproj">
       <Project>{F37243ED-C440-45D2-96B5-4D92583CAEBA}</Project>
-      <Name>Coffeeffee</Name>
+      <Name>WhiteTeeth</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

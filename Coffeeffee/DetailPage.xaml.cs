@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Coffeeffee.Models;
+using WhiteTeeth.Models;
 using SkiaSharp;
 using Xamarin.Forms;
 
-namespace Coffeeffee
+namespace WhiteTeeth
 {
     public partial class DetailPage : ContentPage
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Coffeeffee.Styles
+namespace WhiteTeeth.Styles
 {
     public static class Icons
     {

@@ -1,7 +1,7 @@
 ﻿using Plugin.SharedTransitions;
 using Xamarin.Forms;
 
-namespace Coffeeffee
+namespace WhiteTeeth
 {
     public partial class App : Application
     {

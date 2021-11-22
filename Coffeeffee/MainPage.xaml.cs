@@ -6,10 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using SkiaSharp;
-using Coffeeffee.Models;
+using WhiteTeeth.Models;
 using Plugin.SharedTransitions;
 
-namespace Coffeeffee
+namespace WhiteTeeth
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer

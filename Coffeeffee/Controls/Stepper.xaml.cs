@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Coffeeffee.Controls
+namespace WhiteTeeth.Controls
 {
     public partial class Stepper : Frame
     {

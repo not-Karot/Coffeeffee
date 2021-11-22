@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Coffeeffee.Models
+namespace WhiteTeeth.Models
 {
     public class Treatment
     {

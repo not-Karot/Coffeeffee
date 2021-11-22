@@ -61,6 +61,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -157,7 +158,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Coffeeffee\Coffeeffee.csproj">
       <Project>{F37243ED-C440-45D2-96B5-4D92583CAEBA}</Project>
-      <Name>Coffeeffee</Name>
+      <Name>WhiteTeeth</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

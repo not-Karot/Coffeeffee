@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Coffeeffee.iOS
+namespace WhiteTeeth.iOS
 {
     public class Application
     {
