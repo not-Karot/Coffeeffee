@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using SkiaSharp;
 using Coffeeffee.Models;
 using Plugin.SharedTransitions;
+using Xamarin.Essentials;
 
 namespace Coffeeffee
 {
@@ -66,5 +67,32 @@ namespace Coffeeffee
 
             await Navigation.PushAsync(new DetailPage(model));
         }
+
+        async void Take_Photo_Button(System.Object sender, System.EventArgs e)
+        {
+            var result = await MediaPicker.CapturePhotoAsync();
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                resultImage.Source = ImageSource.FromStream(() => stream);
+            }
+            
+
+        }
+        async void Load_Photo_Button(System.Object sender, System.EventArgs e)
+        {
+            var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+            {
+                Title = "Please pick a photo"
+            });
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                resultImage.Source = ImageSource.FromStream(() => stream);
+            }
+        }
+
     }
 }
