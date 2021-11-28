@@ -75,7 +75,8 @@ namespace Coffeeffee
             if (result != null)
             {
                 var stream = await result.OpenReadAsync();
-                resultImage.Source = ImageSource.FromStream(() => stream);
+
+                await Navigation.PushAsync(new ImagePage(stream));
             }
             
 
@@ -90,7 +91,9 @@ namespace Coffeeffee
             if (result != null)
             {
                 var stream = await result.OpenReadAsync();
-                resultImage.Source = ImageSource.FromStream(() => stream);
+
+                await Navigation.PushAsync(new ImagePage(stream));
+
             }
         }
 

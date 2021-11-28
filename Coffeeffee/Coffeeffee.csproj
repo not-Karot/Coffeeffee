@@ -34,4 +34,10 @@
     <EmbeddedResource Include="Fonts\icomoon_prev.ttf" />
     <EmbeddedResource Include="Fonts\icomoon.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Controls\Stepper %28copia%29.xaml.cs">
+      <DependentUpon>Stepper %28copia%29.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

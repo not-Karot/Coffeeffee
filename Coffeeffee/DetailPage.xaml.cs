@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Coffeeffee.Models;
 using SkiaSharp;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 
 namespace Coffeeffee
 {
@@ -46,6 +47,19 @@ namespace Coffeeffee
         {
             await Navigation.PopAsync();
         }
-       
+
+        async void Take_Photo_Button(System.Object sender, System.EventArgs e)
+        {
+            var result = await MediaPicker.CapturePhotoAsync();
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+
+                await Navigation.PushAsync(new ImagePage(stream));
+            }
+
+
+        }
     }
 }

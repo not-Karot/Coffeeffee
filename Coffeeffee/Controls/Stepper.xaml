@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Frame xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        x:Class="Coffeeffee.Controls.Stepper" HasShadow="False" VerticalOptions="Start"
+       xmlns:icons="clr-namespace:Coffeeffee.Styles"
        Padding="16,0" HeightRequest="40" BackgroundColor="#F1DFBF">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="50" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="50" />
         </Grid.ColumnDefinitions>
 
-        <Button TextColor="{StaticResource green}" FontSize="24" Text="-" VerticalOptions="Center"
-            HorizontalOptions="Center" />
+        <Button TextColor="{StaticResource green}" FontSize="24" FontFamily="Icons" Text="{x:Static icons:Icons.IconCameraFull}" VerticalOptions="Center"
+            HorizontalOptions="Center" Clicked="Take_Photo_Button"/>
         <Label FontFamily="JosefinSans-Bold" TextColor="{StaticResource green}" Text="{Binding Quantity}"
             VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" VerticalTextAlignment="Center"/>
-        <Button TextColor="{StaticResource green}" FontSize="24" Text="+" VerticalOptions="Center"
-            HorizontalOptions="Center" Grid.Column="2" />
+        <Button TextColor="{StaticResource green}" FontSize="24" FontFamily="Icons" Text="{x:Static icons:Icons.IconGalleryFull}" VerticalOptions="Center"
+            HorizontalOptions="Center" Grid.Column="2" Clicked="Load_Photo_Button"/>
     </Grid>
 </Frame>
