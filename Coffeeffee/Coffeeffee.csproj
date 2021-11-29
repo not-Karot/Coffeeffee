@@ -16,6 +16,7 @@
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.2.1" />
     <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.2.0" />
     <PackageReference Include="CoordinatorLayout.XamarinForms" Version="1.2.0" />
+    <PackageReference Include="Udara.Plugin.XFColorPickerControl" Version="1.0.3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
@@ -27,6 +28,7 @@
     <None Remove="Fonts\JosefinSans-Bold.ttf" />
     <None Remove="Fonts\JosefinSans-Regular.ttf" />
     <None Remove="Fonts\icomoon.ttf" />
+    <None Remove="Udara.Plugin.XFColorPickerControl" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-Bold.ttf" />
