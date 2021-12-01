@@ -5,17 +5,22 @@ using Xamarin.Forms;
 using Coffeeffee.Models;
 using System.IO;
 using System.Threading.Tasks;
+using Syncfusion.SfImageEditor.XForms;
 
 namespace Coffeeffee
 {
     public partial class ImagePage : ContentPage
 
     {
-
+        public SfImageEditor editor = new SfImageEditor();
+      
         public ImagePage(Stream stream)
         {
             InitializeComponent();
+           
             image.Source = ImageSource.FromStream(() => stream);
+
+            Console.WriteLine("constructor");
 
         }
 
@@ -26,20 +31,13 @@ namespace Coffeeffee
             await Navigation.PopAsync();
         }
 
-        private void ColorPicker_PickedColorChanged(object sender, Color colorPicked)
+        
+        private void SfImageEditor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
-            // do whatever you want with the colorPicked value
-        }
 
-        public Task<Stream> TransformPhotoAsync(Func<byte, byte, byte, double> pixelOperation)
-        {
-            return Task.Run(() =>
-            {
-                var bitmap = new Bitmap(image);
-                bitmap.ToPixelArray();
-                bitmap.TransformImage(pixelOperation);
-                return bitmap.ToImage().AsJPEG().AsStream();
-            });
+            args.Cancel = true;
+            var stream = args.Stream;
+            new_image.Source = ImageSource.FromStream(() => stream);
         }
     }
 }

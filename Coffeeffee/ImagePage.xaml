@@ -6,29 +6,44 @@
     xmlns:icons="clr-namespace:Coffeeffee.Styles"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
-    ios:Page.UseSafeArea="true"
+    ios:Page.UseSafeArea="True"
     BackgroundColor="{StaticResource white}"
-    NavigationPage.HasNavigationBar="False"
+    NavigationPage.HasNavigationBar="True"
     xmlns:xfColorPickerControl="clr-namespace:Udara.Plugin.XFColorPickerControl;assembly=Udara.Plugin.XFColorPickerControl"
+    xmlns:Syncfusion="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
     >
 
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="120" />
-                <RowDefinition Height="280" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="400" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
-                <Image HeightRequest="400" x:Name="image" Aspect="AspectFill" sharedTransitions:Transition.Name="CoffeeImage"/>
+            <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0,40,0,0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
+                <Syncfusion:SfImageEditor HeightRequest="400" x:Name="image" sharedTransitions:Transition.Name="CoffeeImage" ImageSaving="SfImageEditor_ImageSaving"/>
             </Frame>
-
-            <Button BackgroundColor="{StaticResource white}" Grid.ColumnSpan="3" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="Start"
-                VerticalOptions="Center" CornerRadius="8" Margin="32,0,0,0" Clicked="Back_Clicked"
-                Text="{x:Static icons:Icons.IconBackFull}" TextColor="{StaticResource green}" FontSize="20"/>
+           
             
+            <ScrollView Grid.Row="2" Grid.ColumnSpan="3" >
+                <Grid Padding="40,32" ColumnSpacing="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    
+                </Grid>
+            </ScrollView>
+            <Image x:Name="new_image"/>
             
             <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="{StaticResource green}" Margin="0,0,0,-40" HeightRequest="40" />
 

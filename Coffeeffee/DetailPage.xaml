@@ -5,10 +5,10 @@
              xmlns:icons="clr-namespace:Coffeeffee.Styles"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
-             ios:Page.UseSafeArea="true"
+             ios:Page.UseSafeArea="True"
              xmlns:local="clr-namespace:Coffeeffee.Controls"
              BackgroundColor="{StaticResource white}"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="True">
     <ContentPage.Content>
 
         <Grid>
@@ -23,9 +23,9 @@
                 <Image HeightRequest="400" Source="{Binding Image}" Aspect="AspectFill" sharedTransitions:Transition.Name="CoffeeImage" />
             </Frame>
 
-            <Button BackgroundColor="{StaticResource white}" Grid.ColumnSpan="3" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="Start"
+            <!--<Button BackgroundColor="{StaticResource white}" Grid.ColumnSpan="3" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="Start"
                 VerticalOptions="Center" CornerRadius="8" Margin="32,0,0,0" Clicked="Back_Clicked"
-                Text="{x:Static icons:Icons.IconBackFull}" TextColor="{StaticResource green}" FontSize="20"/>
+                Text="{x:Static icons:Icons.IconBackFull}" TextColor="{StaticResource green}" FontSize="20"/>-->
 
             <ScrollView Grid.Row="2" Grid.ColumnSpan="3" >
                 <Grid Padding="40,32" ColumnSpacing="12">
