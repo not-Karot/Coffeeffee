@@ -47,7 +47,7 @@
 
                     <Label Grid.Column="0" Grid.Row="2" FontFamily="JosefinSans-Bold" FontSize="40" TextColor="{StaticResource green}" Text="{Binding Price, StringFormat='{0:c}'}" />
                     <Label Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Description}" FontFamily="JosefinSans-Regular" FontSize="16" LineHeight="1.2" />
-                    <local:Stepper Grid.Row="2" Grid.Column="1" WidthRequest="120" HorizontalOptions="Start" Margin="0,0,0,24" />
+                    <local:Stepper Grid.Row="2" Grid.Column="1" WidthRequest="120" HorizontalOptions="Start" Margin="0,0,0,24" Padding="0,0"/>
 
                     <Label Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Description}" FontFamily="JosefinSans-Regular" FontSize="16" LineHeight="1.2" />
                

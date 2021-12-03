@@ -65,7 +65,7 @@
                                 </Image.GestureRecognizers>
                             </Image>
                             <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Title}" HorizontalTextAlignment="Center" />
-
+                            <local:Stepper Grid.Row="2" Grid.Column="1" WidthRequest="1000" HorizontalOptions="Center" Margin="0,0,0,0" />
                         </Grid>
                     </Frame>
                 </DataTemplate>
