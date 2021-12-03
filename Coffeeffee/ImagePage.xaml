@@ -5,11 +5,9 @@
     x:Class="Coffeeffee.ImagePage"
     xmlns:icons="clr-namespace:Coffeeffee.Styles"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
     ios:Page.UseSafeArea="True"
     BackgroundColor="{StaticResource white}"
     NavigationPage.HasNavigationBar="True"
-    xmlns:xfColorPickerControl="clr-namespace:Udara.Plugin.XFColorPickerControl;assembly=Udara.Plugin.XFColorPickerControl"
     xmlns:Syncfusion="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
     >
 
@@ -23,7 +21,7 @@
             </Grid.RowDefinitions>
 
             <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0,40,0,0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
-                <Syncfusion:SfImageEditor HeightRequest="400" x:Name="image" sharedTransitions:Transition.Name="CoffeeImage" ImageSaving="SfImageEditor_ImageSaving"/>
+                <Syncfusion:SfImageEditor HeightRequest="400" x:Name="image" ImageSaving="SfImageEditor_ImageSaving"/>
             </Frame>
            
             
@@ -43,7 +41,7 @@
                     
                 </Grid>
             </ScrollView>
-            <Image x:Name="new_image"/>
+           
             
             <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="{StaticResource green}" Margin="0,0,0,-40" HeightRequest="40" />
 
@@ -57,7 +55,7 @@
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" />
 
             <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Back_Clicked"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Home_Clicked"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
 
             <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"

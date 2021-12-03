@@ -26,9 +26,9 @@ namespace Coffeeffee
 
 
 
-        async void Back_Clicked(System.Object sender, System.EventArgs e)
+        async void Home_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new MainPage());
         }
 
         
@@ -37,7 +37,7 @@ namespace Coffeeffee
 
             args.Cancel = true;
             var stream = args.Stream;
-            new_image.Source = ImageSource.FromStream(() => stream);
+            
         }
     }
 }

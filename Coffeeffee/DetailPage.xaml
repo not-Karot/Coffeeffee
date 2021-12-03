@@ -20,7 +20,8 @@
             </Grid.RowDefinitions>
 
             <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
-                <Image HeightRequest="400" Source="{Binding Image}" Aspect="AspectFill" sharedTransitions:Transition.Name="CoffeeImage" />
+                <Image HeightRequest="400" Source="{Binding Image}" Aspect="AspectFill"  />
+                <!--sharedTransitions:Transition.Name="CoffeeImage"-->
             </Frame>
 
             <!--<Button BackgroundColor="{StaticResource white}" Grid.ColumnSpan="3" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="Start"
