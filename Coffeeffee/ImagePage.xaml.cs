@@ -42,9 +42,40 @@ namespace Coffeeffee
             SKColor[] pixels = bitmap.Pixels;
 
             bitmap.Pixels = pixels;
-            getMaxOccurrence(pixels);
+            Console.WriteLine(GetDominantColor(pixels));
+            //getMaxOccurrence(pixels);
 
 
+        }
+        public static Color GetDominantColor(SKColor[] bmp)
+        {
+
+            //Used for tally
+            int r = 0;
+            int g = 0;
+            int b = 0;
+
+            int total = 0;
+
+            foreach(SKColor color in bmp)
+            {
+                r += color.Red;
+                g += color.Green;
+                b += color.Blue;
+
+                total++;
+            }
+
+                    
+              
+
+            //Calculate average
+            r /= total;
+            g /= total;
+            b /= total;
+            
+
+            return Color.FromArgb(r, g, b);
         }
 
         public static void getMaxOccurrence(SKColor[] numbers)
