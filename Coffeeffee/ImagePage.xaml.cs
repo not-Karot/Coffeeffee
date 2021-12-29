@@ -15,10 +15,12 @@ namespace Coffeeffee
 
     {
         public SfImageEditor editor = new SfImageEditor();
-      
+        ColorIdentifier identifier = new ColorIdentifier();
+
         public ImagePage(Stream stream)
         {
             InitializeComponent();
+            
            
             image.Source = ImageSource.FromStream(() => stream);
 
@@ -39,69 +41,20 @@ namespace Coffeeffee
             
             SKBitmap bitmap =  SKBitmap.Decode(stream);
 
-            SKColor[] pixels = bitmap.Pixels;
+            //SKColor[] pixels = bitmap.Pixels;
 
-            bitmap.Pixels = pixels;
-            Console.WriteLine(GetDominantColor(pixels));
+            //bitmap.Pixels = pixels;
+
+
+
+            Console.WriteLine(this.identifier.GetRightTooth(bitmap).name);
+            //Console.WriteLine(GetDominantColor(pixels));
             //getMaxOccurrence(pixels);
 
 
         }
-        public static Color GetDominantColor(SKColor[] bmp)
-        {
 
-            //Used for tally
-            int r = 0;
-            int g = 0;
-            int b = 0;
 
-            int total = 0;
-
-            foreach(SKColor color in bmp)
-            {
-                r += color.Red;
-                g += color.Green;
-                b += color.Blue;
-
-                total++;
-            }
-
-                    
-              
-
-            //Calculate average
-            r /= total;
-            g /= total;
-            b /= total;
-            
-
-            return Color.FromArgb(r, g, b);
-        }
-
-        public static void getMaxOccurrence(SKColor[] numbers)
-        {
-            var counts = new Dictionary<SKColor, int>();
-            foreach (SKColor number in numbers)
-            {
-                int count;
-                counts.TryGetValue(number, out count);
-                count++;
-                //Automatically replaces the entry if it exists;
-                //no need to use 'Contains'
-                counts[number] = count;
-            }
-            SKColor mostCommonNumber = 0;
-            int occurrences = 0;
-            foreach (var pair in counts)
-            {
-                if (pair.Value > occurrences)
-                {
-                    occurrences = pair.Value;
-                    mostCommonNumber = pair.Key;
-                }
-            }
-            Console.WriteLine("The most common number is {0} and it appears {1} times",
-                mostCommonNumber, occurrences);
-        }
+        
     }
 }

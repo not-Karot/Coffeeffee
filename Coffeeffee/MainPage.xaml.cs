@@ -9,6 +9,8 @@ using SkiaSharp;
 using Coffeeffee.Models;
 using Plugin.SharedTransitions;
 using Xamarin.Essentials;
+using System.Reflection;
+using System.IO;
 
 namespace Coffeeffee
 {
@@ -59,8 +61,27 @@ namespace Coffeeffee
         //}
 
         async void Image_Tapped(System.Object sender, System.EventArgs e)
-        {
+        {    
             var model = (sender as Image).BindingContext as Treatment;
+
+            Teeth teeth = new Teeth();
+            Tooth[] scale = teeth.teeth;
+            foreach (Tooth step in scale)
+            {
+                Console.WriteLine(step.name);
+                if (step.bitmap.Height != 160)
+                {
+                    Console.WriteLine(step.bitmap.Height);
+                }
+                if( step.bitmap.Width != 112)
+                {
+                    Console.WriteLine(step.bitmap.Width);
+                }
+                
+                
+
+            }
+
 
             //this is required in order to pass the views to animate
             SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
@@ -83,6 +104,7 @@ namespace Coffeeffee
         }
         async void Load_Photo_Button(System.Object sender, System.EventArgs e)
         {
+            
             var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
             {
                 Title = "Please pick a photo"
@@ -95,6 +117,9 @@ namespace Coffeeffee
                 await Navigation.PushAsync(new ImagePage(stream));
 
             }
+
+           
+
         }
 
     }
