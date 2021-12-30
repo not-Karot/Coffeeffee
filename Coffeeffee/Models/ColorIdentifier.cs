@@ -39,7 +39,7 @@ namespace Coffeeffee.Models
                     step_total += Math.Abs(to_compare[i].Blue -comparable[i].Blue);
                     step_total += Math.Abs(to_compare[i].Green - comparable[i].Green);
                 }
-                Console.WriteLine(step.name + step_total);
+                
 
                 if (step_total < best)
                 {

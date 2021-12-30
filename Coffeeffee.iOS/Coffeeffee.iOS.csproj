@@ -197,6 +197,10 @@
     <ImageAsset Include="Assets.xcassets\D3.imageset\D3.png" />
     <ImageAsset Include="Assets.xcassets\D4.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\D4.imageset\D4.png" />
+    <ImageAsset Include="Assets.xcassets\Scala_vita.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Scala_vita.imageset\Scala_vita.png" />
+    <ImageAsset Include="Assets.xcassets\Scala_vita.imageset\Scala_vita-1.png" />
+    <ImageAsset Include="Assets.xcassets\Scala_vita.imageset\Scala_vita-2.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -246,5 +250,6 @@
     <Folder Include="Assets.xcassets\D2.imageset\" />
     <Folder Include="Assets.xcassets\D3.imageset\" />
     <Folder Include="Assets.xcassets\D4.imageset\" />
+    <Folder Include="Assets.xcassets\Scala_vita.imageset\" />
   </ItemGroup>
 </Project>

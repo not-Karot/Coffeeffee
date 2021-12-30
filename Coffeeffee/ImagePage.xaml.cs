@@ -16,6 +16,7 @@ namespace Coffeeffee
     {
         public SfImageEditor editor = new SfImageEditor();
         ColorIdentifier identifier = new ColorIdentifier();
+       
 
         public ImagePage(Stream stream)
         {
@@ -23,6 +24,7 @@ namespace Coffeeffee
             
            
             image.Source = ImageSource.FromStream(() => stream);
+            BindingContext = new Tooth("Result tooth will be shown here", "Coffeeffee.Resources.Scala_vita.png", Color.FromArgb(0, 0, 0), "Scala_vita.png");
 
         }
 
@@ -44,9 +46,11 @@ namespace Coffeeffee
             //SKColor[] pixels = bitmap.Pixels;
 
             //bitmap.Pixels = pixels;
+            
 
 
-
+            BindingContext = this.identifier.GetRightTooth(bitmap);
+            
             Console.WriteLine(this.identifier.GetRightTooth(bitmap).name);
             //Console.WriteLine(GetDominantColor(pixels));
             //getMaxOccurrence(pixels);

@@ -54,6 +54,7 @@
     <None Remove="Resources\ToothColors\B2.png" />
     <None Remove="Resources\ToothColors\C4.png" />
     <None Remove="Resources\ToothColors\B1.png" />
+    <None Remove="Resources\Scala vita.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-Bold.ttf" />
@@ -76,6 +77,7 @@
     <EmbeddedResource Include="Resources\ToothColors\B2.png" />
     <EmbeddedResource Include="Resources\ToothColors\C4.png" />
     <EmbeddedResource Include="Resources\ToothColors\B1.png" />
+    <EmbeddedResource Include="Resources\Scala vita.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Controls\Stepper %28copia%29.xaml.cs">

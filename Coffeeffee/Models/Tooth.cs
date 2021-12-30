@@ -11,7 +11,23 @@ namespace Coffeeffee.Models
         public string name { get; }
         public SKBitmap bitmap { get; }
         public Color rgb_color { get; }
+        public string image { get; }
 
+        public Tooth(string name, string bitmap, Color rgb_color, string image)
+        {
+            Assembly assembly = GetType().GetTypeInfo().Assembly;
+            this.name = name;
+
+            using (Stream stream = assembly.GetManifestResourceStream(bitmap))
+            {
+                
+
+                this.bitmap = SKBitmap.Decode(stream);
+            }
+        
+            this.rgb_color = rgb_color;
+            this.image = image;
+        }
         public Tooth(string name, string bitmap, Color rgb_color)
         {
             Assembly assembly = GetType().GetTypeInfo().Assembly;
@@ -19,17 +35,14 @@ namespace Coffeeffee.Models
 
             using (Stream stream = assembly.GetManifestResourceStream(bitmap))
             {
-                Console.WriteLine("costructor");
-                Console.WriteLine(bitmap);
+
 
                 this.bitmap = SKBitmap.Decode(stream);
             }
-        
+
             this.rgb_color = rgb_color;
         }
 
-
-
-    }
+        }
 
 }

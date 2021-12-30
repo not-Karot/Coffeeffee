@@ -23,7 +23,20 @@
             <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0,40,0,0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
                 <Syncfusion:SfImageEditor HeightRequest="400" x:Name="image" ImageSaving="SfImageEditor_ImageSaving"/>
             </Frame>
-           
+
+            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalOptions="Start" Padding="6,0,6,0">
+
+                <Frame Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="1" >
+                    <Label Text="{Binding name}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontFamily="JosefinSans-Regular" FontSize="Default" LineHeight="1" />
+
+                </Frame>
+                <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Image  Source="{Binding image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+                </Frame>
+            
+            </Grid>
+            
             
             <ScrollView Grid.Row="2" Grid.ColumnSpan="3" >
                 <Grid Padding="40,32" ColumnSpacing="12">
