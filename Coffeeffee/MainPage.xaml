@@ -17,7 +17,8 @@
 
         <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
-                Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="30"/>
+                Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="30"
+                Clicked="Settings_Button"/>
 
         <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
                HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"

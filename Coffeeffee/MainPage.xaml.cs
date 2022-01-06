@@ -64,31 +64,16 @@ namespace Coffeeffee
         {    
             var model = (sender as Image).BindingContext as Treatment;
 
-            Teeth teeth = new Teeth();
-            Tooth[] scale = teeth.teeth;
-            foreach (Tooth step in scale)
-            {
-                Console.WriteLine(step.name);
-                if (step.bitmap.Height != 160)
-                {
-                    Console.WriteLine(step.bitmap.Height);
-                }
-                if( step.bitmap.Width != 112)
-                {
-                    Console.WriteLine(step.bitmap.Width);
-                }
-                
-                
-
-            }
-
-
             //this is required in order to pass the views to animate
             SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
 
             await Navigation.PushAsync(new DetailPage(model));
         }
+        async void Settings_Button(System.Object sender, System.EventArgs e)
+        {
 
+            await Navigation.PushAsync(new LoginPage());
+        }
         async void Take_Photo_Button(System.Object sender, System.EventArgs e)
         {
             var result = await MediaPicker.CapturePhotoAsync();

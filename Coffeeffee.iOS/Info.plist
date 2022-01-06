@@ -48,5 +48,18 @@
 	<string>WhiteTeeth would like to access your library</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>WhiteTeeth would like to access your microphone</string>
+		<key>CFBundleURLTypes</key>
+	<array>
+	  <dict>
+	    <key>CFBundleURLName</key>
+	    <string>whiteteeth</string>
+	    <key>CFBundleURLSchemes</key>
+	    <array>
+	      <string>whiteteeth</string>
+	    </array>
+	    <key>CFBundleTypeRole</key>
+	    <string>Editor</string>
+	  </dict>
+	</array>
 </dict>
 </plist>

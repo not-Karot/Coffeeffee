@@ -1,5 +1,7 @@
 ﻿using Plugin.SharedTransitions;
 using Xamarin.Forms;
+using Xamarin.Essentials.Interfaces;
+using Xamarin.Essentials.Implementation;
 
 
 namespace Coffeeffee
@@ -28,5 +30,6 @@ namespace Coffeeffee
         protected override void OnResume()
         {
         }
+       
     }
 }

@@ -19,6 +19,8 @@
     <PackageReference Include="Udara.Plugin.XFColorPickerControl" Version="1.0.3" />
     <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="19.3.0.56" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="AWSSDK.Amplify" Version="3.7.0.111" />
+    <PackageReference Include="Xamarin.Essentials.Interfaces" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
@@ -55,6 +57,8 @@
     <None Remove="Resources\ToothColors\C4.png" />
     <None Remove="Resources\ToothColors\B1.png" />
     <None Remove="Resources\Scala vita.png" />
+    <None Remove="AWSSDK.Amplify" />
+    <None Remove="Xamarin.Essentials.Interfaces" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Fonts\JosefinSans-Bold.ttf" />
