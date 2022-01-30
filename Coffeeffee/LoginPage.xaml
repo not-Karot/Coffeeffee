@@ -1,11 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Coffeeffee.LoginPage">
-    <ContentPage.Content>
+<ContentPage BackgroundColor="{StaticResource green}" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="Coffeeffee.LoginPage"
+             xmlns:models="clr-namespace:Coffeeffee.Models"
+             xmlns:icons="clr-namespace:Coffeeffee.Styles"
+             xmlns:local="clr-namespace:Coffeeffee.Controls"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
+    <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
+
+        <Label Text="{Binding name}" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
+               TextColor="#FFFFFF" FontSize="32" Margin="32,0,0,0" />
+
+        <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
+                VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
+                Text="{x:Static icons:Icons.IconProfileFull}" TextColor="{StaticResource green}" FontSize="30"
+                Clicked="Button_Clicked"/>
+
+        <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
+               HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span TextColor="#FFFFFF" Text="Choose the kind of treatment you would like to take" />
+                    
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
 
 
-        <Button Text="login" Clicked="Button_Clicked"/>
-    </ContentPage.Content>
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Path Fill="#FFFFFF" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
+                  Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
+        </Grid>
+
+        
+
+
+       
+        
+        <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCameraFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"/>
+
+        <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconProfileFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+
+        <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconPeopleFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24" />
+
+    </Grid>
 </ContentPage>

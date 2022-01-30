@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
-
+using Coffeeffee.Models;
 using Xamarin.Forms;
 
 namespace Coffeeffee
 {
     public partial class LoginPage : ContentPage
     {
+        public User user;
         public LoginPage()
         {
             InitializeComponent();
+            
         }
 
         async void ExecuteLoginCommand()
@@ -29,6 +31,7 @@ namespace Coffeeffee
                     PrefersEphemeralWebBrowserSession = true
                 });
                 var accessToken = authResult?.AccessToken;
+               user = new User(accessToken);
 
             }catch(TaskCanceledException e)
             {
