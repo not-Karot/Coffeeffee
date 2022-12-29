@@ -19,11 +19,11 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>13.0</string>
+	<string>12.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>WhiteTeeth</string>
 	<key>CFBundleIdentifier</key>
-	<string>io.thewissen.WhiteTeeth</string>
+	<string>notkarot.WhiteTeeth</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -32,8 +32,6 @@
 	<string>WhiteTeeth</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UIAppFonts</key>
@@ -42,13 +40,13 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>WhiteTeeth would like to access your camera</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>WhiteTeeth would like to access your library</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>WhiteTeeth would like to access your library</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>WhiteTeeth would like to access your microphone</string>
-		<key>CFBundleURLTypes</key>
+	<string>This app needs access to microphone for taking videos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs access to the photo gallery for picking photos and videos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to photos gallery for picking photos and videos.</string>
+	<key>CFBundleURLTypes</key>
 	<array>
 	  <dict>
 	    <key>CFBundleURLName</key>

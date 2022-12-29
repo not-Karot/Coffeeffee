@@ -1,4 +1,5 @@
-﻿using Plugin.SharedTransitions;
+﻿using System;
+using Plugin.SharedTransitions;
 using Xamarin.Forms;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Essentials.Implementation;
@@ -11,6 +12,7 @@ namespace Coffeeffee
         public App()
         {
             InitializeComponent();
+            Startup.ConfigureServices();
 
             Device.SetFlags(new string[] { "Shapes_Experimental" });
 
@@ -30,6 +32,7 @@ namespace Coffeeffee
         protected override void OnResume()
         {
         }
-       
+        
+
     }
 }

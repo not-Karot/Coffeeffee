@@ -4,12 +4,14 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Coffeeffee.Models;
 using Xamarin.Forms;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity;
 
 namespace Coffeeffee
 {
     public partial class LoginPage : ContentPage
     {
-        public User user;
+        public Dentist user;
         public LoginPage()
         {
             InitializeComponent();
@@ -21,19 +23,28 @@ namespace Coffeeffee
             
             try
             {
-                var url = new Uri("https://whiteteeth.auth.eu-west-3.amazoncognito.com/oauth2/authorize?client_id=c37hj343ukrcs60p1pp62867f&response_type=code&scope=email+openid+phone&redirect_uri=whiteteeth%3A%2F%2F");
+                var url = new Uri("https://whiteteeth.auth.eu-west-3.amazoncognito.com/login?client_id=c37hj343ukrcs60p1pp62867f&response_type=code&scope=email+openid+phone&redirect_uri=whiteteeth://");
+                
                 var callbackUrl = new Uri("whiteteeth://");
 
-                var authResult = await WebAuthenticator.AuthenticateAsync(new WebAuthenticatorOptions
-                {
-                    Url = url,
-                    CallbackUrl = callbackUrl,
-                    PrefersEphemeralWebBrowserSession = true
-                });
+                var authResult = await WebAuthenticator.AuthenticateAsync(
+                    url,
+                    callbackUrl
+                    );
                 var accessToken = authResult?.AccessToken;
-               user = new User(accessToken);
+                user = new Dentist(accessToken);
+                Console.WriteLine("$$$$$$$$$$$$$");
 
-            }catch(TaskCanceledException e)
+                Console.WriteLine(accessToken);
+                Console.WriteLine("$$$$$$$$$$$$$");
+                foreach (KeyValuePair<string, string> kvp in authResult.Properties)
+                {
+                    Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
+                }
+                
+
+            }
+            catch(TaskCanceledException e)
             {
                 
             }
@@ -41,7 +52,14 @@ namespace Coffeeffee
 
         async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
+
             ExecuteLoginCommand();
+        }
+
+
+        async void Back_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

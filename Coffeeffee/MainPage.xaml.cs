@@ -11,6 +11,7 @@ using Plugin.SharedTransitions;
 using Xamarin.Essentials;
 using System.Reflection;
 using System.IO;
+using Coffeeffee.Views;
 
 namespace Coffeeffee
 {
@@ -68,6 +69,11 @@ namespace Coffeeffee
             SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
 
             await Navigation.PushAsync(new DetailPage(model));
+        }
+        async void PeopleClicked(System.Object sender, System.EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Clients());
         }
         async void Settings_Button(System.Object sender, System.EventArgs e)
         {

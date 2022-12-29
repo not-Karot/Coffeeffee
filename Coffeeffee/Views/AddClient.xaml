@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Coffeeffee.Views.AddClient">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <StackLayout>
+                <Label Text="Name" />
+                <Entry Text="{Binding Name}" />
+            </StackLayout>
+
+            <StackLayout>
+                <Label Text="Surname" />
+                <Entry Text="{Binding Surname}" />
+            </StackLayout>
+
+            
+
+            <Button Text="Save"
+                    Command="{Binding SaveBookCommand}" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+

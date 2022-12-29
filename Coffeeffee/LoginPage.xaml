@@ -9,7 +9,7 @@
              xmlns:local="clr-namespace:Coffeeffee.Controls"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
-             ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
+             ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="True">
     <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
 
         <Label Text="{Binding name}" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
@@ -49,8 +49,9 @@
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"/>
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconProfileFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32"
+                Clicked="Back_Clicked"/>
 
         <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconPeopleFull}"
