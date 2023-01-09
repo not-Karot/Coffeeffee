@@ -1,37 +1,77 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Coffeeffee.Views.Clients">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="New Client" Command="{Binding AddNewClientCommand}" />
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <CollectionView 
-            x:Name="ClientsCollection"
-            ItemsSource="{Binding Clients}"
-            SelectionMode="Single"
-            SelectedItem="{Binding SelectedClient}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Delete"
-                                       BackgroundColor="Red"
-                                       Command="{Binding Source={x:Reference ClientsCollection}, Path=BindingContext.DeleteClientCommand}"
-                                       CommandParameter="{Binding}"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Name}" FontSize="Medium" />
-                            <Label Text="{Binding Surname}" FontSize="Subtitle" />
-                            <Label Text="{Binding Dentist}" FontSize="Subtitle" />
-                        </StackLayout>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </ContentPage.Content>
-</ContentPage>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage BackgroundColor="{StaticResource green}" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="Coffeeffee.Views.Clients"
+             xmlns:models="clr-namespace:Coffeeffee.Models"
+             xmlns:icons="clr-namespace:Coffeeffee.Styles"
+             xmlns:local="clr-namespace:Coffeeffee.Controls"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
+    <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
 
+        <Label Text="Your clients" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
+               TextColor="#FFFFFF" FontSize="30" Margin="32,0,0,0" />
+
+        <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
+                VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
+                Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="30"
+                Clicked="Settings_Button"/>
+
+        <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
+
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Path Fill="#FFFFFF" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
+                  Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
+        </Grid>
+
+        <CarouselView ItemsSource="{Binding Clients}" Grid.Row="1" Grid.ColumnSpan="2" PeekAreaInsets="6,10,6,10"
+                      VerticalScrollBarVisibility="Always">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="4" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:DataType="models:Client">
+                    <Frame HasShadow="False" IsClippedToBounds="True" Padding="2" CornerRadius="20" BackgroundColor="{StaticResource white}">
+                        <Grid RowSpacing="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="48" />
+                                <RowDefinition Height="48" />
+                                <RowDefinition Height="4" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding name}" HorizontalTextAlignment="Center" />
+                            <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding surname}" HorizontalTextAlignment="Center" />
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+
+       
+        
+        <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconCameraFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" Clicked="Take_Photo_Button"/>
+
+        <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Home_Clicked"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+
+        <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconPeopleFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24" />
+
+
+    </Grid>
+</ContentPage>

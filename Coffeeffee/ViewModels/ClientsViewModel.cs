@@ -12,10 +12,20 @@ namespace Coffeeffee.ViewModels
 {
 	public class ClientsViewModel : BaseViewModel
 	{
-        private ObservableCollection<Client> clients;
+        public ObservableCollection<Client> clients;
         private Client selectedClient;
         private readonly IClient _clientService;
+        private bool isLoading= true;
 
+        public bool IsLoading
+        {
+            get => isLoading;
+            set
+            {
+                isLoading = value;
+                OnPropertyChanged(nameof(IsLoading));
+            }
+        }
         public ClientsViewModel(IClient ClientService)
         {
             _clientService = ClientService;
@@ -31,25 +41,27 @@ namespace Coffeeffee.ViewModels
         {
             await _clientService.DeleteClient(b);
 
-            PopulateClients();
+            await PopulateClients();
         }
 
         private async Task GoToAddClientView()
             => await Shell.Current.GoToAsync(nameof(AddClient));
 
-        public async void PopulateClients()
+        public async Task PopulateClients()
         {
             try
             {
                 Clients.Clear();
-
-                var books = await _clientService.GetClientsByDentist(1);
+                isLoading = true;
+                var clients = await _clientService.GetClientsByDentist(1);
                 Console.WriteLine("populating");
                 foreach (var client in clients)
                 {
                     Clients.Add(client);
                 }
+                isLoading = false;
                 Console.WriteLine("populated");
+                
             }
             catch (Exception ex)
             {
@@ -71,7 +83,7 @@ namespace Coffeeffee.ViewModels
             set
             {
                 clients = value;
-                OnPropertyChanged(nameof(Clients));
+                //OnPropertyChanged(nameof(Clients));
             }
         }
 
