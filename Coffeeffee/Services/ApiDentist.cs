@@ -29,7 +29,7 @@ namespace Coffeeffee.Services
             throw new NotImplementedException();
         }
 
-        public async Task<Dentist> GetDentist(string id)
+        public async Task<Dentist> GetDentist(int id)
         {
             var response = await _httpClient.GetAsync($"dentist/{id}");
 

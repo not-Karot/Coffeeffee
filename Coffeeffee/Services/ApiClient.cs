@@ -34,7 +34,7 @@ namespace Coffeeffee.Services
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task<Client> GetClient(string client_id)
+        public async Task<Client> GetClient(int client_id)
         {
             var response = await _httpClient.GetAsync($"client/{client_id}");
             response.EnsureSuccessStatusCode();
@@ -43,10 +43,10 @@ namespace Coffeeffee.Services
             return JsonSerializer.Deserialize<Client>(responseAsString);
         }
 
-        public async Task<IEnumerable<Client>> GetClientsByDentist(string dentist_id)
+        public async Task<IEnumerable<Client>> GetClientsByDentist(int dentist_id)
         {
+            Console.WriteLine("££££££££££££££Apiclient£££££££££££");
             var response = await _httpClient.GetAsync("client");
-
             response.EnsureSuccessStatusCode();
 
             var responseAsString = await response.Content.ReadAsStringAsync();

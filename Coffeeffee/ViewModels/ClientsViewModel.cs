@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Coffeeffee.Interfaces;
@@ -13,11 +14,11 @@ namespace Coffeeffee.ViewModels
 	{
         private ObservableCollection<Client> clients;
         private Client selectedClient;
-        private readonly IClient _ClientService;
+        private readonly IClient _clientService;
 
         public ClientsViewModel(IClient ClientService)
         {
-            _ClientService = ClientService;
+            _clientService = ClientService;
 
             Clients = new ObservableCollection<Client>();
 
@@ -28,7 +29,7 @@ namespace Coffeeffee.ViewModels
 
         private async Task DeleteClient(Client b)
         {
-            await _ClientService.DeleteClient(b);
+            await _clientService.DeleteClient(b);
 
             PopulateClients();
         }
@@ -42,13 +43,13 @@ namespace Coffeeffee.ViewModels
             {
                 Clients.Clear();
 
-                var clients = await _ClientService.GetClientsByDentist("1");
-                Console.WriteLine("&&&&&&&&&&&&&&&&&&&");
+                var books = await _clientService.GetClientsByDentist(1);
+                Console.WriteLine("populating");
                 foreach (var client in clients)
                 {
-                    Console.WriteLine(client.client_id);
                     Clients.Add(client);
                 }
+                Console.WriteLine("populated");
             }
             catch (Exception ex)
             {
@@ -61,7 +62,7 @@ namespace Coffeeffee.ViewModels
             if (client == null)
                 return;
 
-            await Shell.Current.GoToAsync($"{nameof(ClientDetails)}?{nameof(ClientDetailsViewModel.client_id)}={client.client_id}");
+            await Shell.Current.GoToAsync($"{nameof(ClientDetails)}?{nameof(ClientDetailsViewModel.Client_id)}={client.client_id}");
         }
 
         public ObservableCollection<Client> Clients
@@ -70,7 +71,7 @@ namespace Coffeeffee.ViewModels
             set
             {
                 clients = value;
-                //OnPropertyChanged(nameof(Clients));
+                OnPropertyChanged(nameof(Clients));
             }
         }
 

@@ -5,7 +5,6 @@ using Xamarin.Essentials;
 using Coffeeffee.Models;
 using Xamarin.Forms;
 using Amazon.CognitoIdentity;
-using Amazon.CognitoIdentity;
 
 namespace Coffeeffee
 {

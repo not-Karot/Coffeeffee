@@ -7,7 +7,7 @@ namespace Coffeeffee.Models
 	{
 
         [JsonPropertyName("client_id")]
-        public string client_id { get; set; }
+        public int client_id { get; set; }
 
         [JsonPropertyName("name")]
         public string name { get; set; }
@@ -16,7 +16,7 @@ namespace Coffeeffee.Models
         public string surname { get; set; }
 
         [JsonPropertyName("dentist")]
-        public Dentist dentist { get; set; }
+        public string dentist { get; set; }
 
 
 	}

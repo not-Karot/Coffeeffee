@@ -10,10 +10,10 @@ namespace Coffeeffee.ViewModels
     public class AddClientViewModel : BaseViewModel
     {
         private readonly IClient _ClientService;
-        public string client_id;
+        public int client_id;
         private string name;
         private string surname;
-        private Dentist dentist;
+        private string dentist;
 
         public AddClientViewModel(IClient ClientService)
         {
@@ -60,9 +60,16 @@ namespace Coffeeffee.ViewModels
                 OnPropertyChanged(nameof(Surname));
             }
         }
-        
+        public string Dentist
+        {
+            get => dentist;
+            set
+            {
+                dentist = value;
+                OnPropertyChanged(nameof(Dentist));
+            }
+        }
+
         public ICommand SaveClientCommand { get; }
     }
 }
-
-

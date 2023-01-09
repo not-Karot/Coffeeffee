@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Coffeeffee.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Coffeeffee.Views
 {

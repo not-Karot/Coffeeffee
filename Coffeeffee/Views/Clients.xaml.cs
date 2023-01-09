@@ -18,11 +18,14 @@ namespace Coffeeffee.Views
 
             _clientsViewModel = Startup.Resolve<ClientsViewModel>();
             BindingContext = _clientsViewModel;
+            Console.WriteLine(_clientsViewModel.Clients);
         }
 
         protected override void OnAppearing()
         {
-            _clientsViewModel?.PopulateClients();
+            Console.WriteLine("onappearing");
+            _clientsViewModel.PopulateClients();
+            Console.WriteLine(_clientsViewModel.Clients);
         }
     }
 }

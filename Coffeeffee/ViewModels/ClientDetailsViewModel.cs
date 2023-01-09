@@ -7,18 +7,18 @@ using Coffeeffee.Models;
 
 namespace Coffeeffee.ViewModels
 {
-    [QueryProperty(nameof(ClientId), nameof(ClientId))]
+    [QueryProperty(nameof(Client_id), nameof(Client_id))]
     public class ClientDetailsViewModel : BaseViewModel
     {
-        public string client_id;
+        private string client_id;
         private string name;
         private string surname;
-        private Dentist dentist;
-        private readonly IClient _ClientService;
+        private string dentist;
+        private readonly IClient _clientService;
 
-        public ClientDetailsViewModel(IClient ClientService)
+        public ClientDetailsViewModel(IClient clientService)
         {
-            _ClientService = ClientService;
+            _clientService = clientService;
 
             SaveClientCommand = new Command(async () => await SaveClient());
         }
@@ -29,13 +29,13 @@ namespace Coffeeffee.ViewModels
             {
                 var client = new Client
                 {
-                    client_id = client_id,
-                    name = name,
-                    surname = surname,
-                    dentist = dentist
+                    client_id = int.Parse(Client_id),
+                    name = Name,
+                    surname = Surname,
+                    dentist = Dentist
                 };
 
-                await _ClientService.SaveClient(client);
+                await _clientService.SaveClient(client);
 
                 await Shell.Current.GoToAsync("..");
             }
@@ -45,16 +45,16 @@ namespace Coffeeffee.ViewModels
             }
         }
 
-        private async void LoadClient(string client_id)
+        private async void LoadClient(string clientId)
         {
             try
             {
-                var Client = await _ClientService.GetClient(client_id);
-                if (ClientId != null)
+                var client = await _clientService.GetClient(int.Parse(clientId));
+                if (clientId != null)
                 {
-                    name = Client.name;
-                    surname = Client.surname;
-                    dentist = Client.dentist;
+                    Name = client.name;
+                    Surname = client.surname;
+                    Dentist = client.dentist;
                 }
             }
             catch (Exception ex)
@@ -63,13 +63,13 @@ namespace Coffeeffee.ViewModels
             }
         }
 
-        public string ClientId
+        public string Client_id
         {
-            get => ClientId;
+            get => client_id;
             set
             {
-                ClientId = value;
-                LoadClient(ClientId);
+                client_id = value;
+                LoadClient(Client_id);
             }
         }
 
@@ -91,18 +91,16 @@ namespace Coffeeffee.ViewModels
                 OnPropertyChanged(nameof(Surname));
             }
         }
-        public Dentist Dentistc
+        public string Dentist
         {
             get => dentist;
             set
             {
                 dentist = value;
-                OnPropertyChanged(nameof(Dentistc.dentist_id));
+                OnPropertyChanged(nameof(Dentist));
             }
         }
 
         public ICommand SaveClientCommand { get; }
     }
 }
-
-

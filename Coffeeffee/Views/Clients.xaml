@@ -26,6 +26,7 @@
                         <StackLayout Padding="10">
                             <Label Text="{Binding Name}" FontSize="Medium" />
                             <Label Text="{Binding Surname}" FontSize="Subtitle" />
+                            <Label Text="{Binding Dentist}" FontSize="Subtitle" />
                         </StackLayout>
                     </SwipeView>
                 </DataTemplate>
