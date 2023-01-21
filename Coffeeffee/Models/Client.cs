@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text.Json.Serialization;
 
 namespace Coffeeffee.Models
@@ -18,7 +19,9 @@ namespace Coffeeffee.Models
         [JsonPropertyName("dentist")]
         public string dentist { get; set; }
 
+        [JsonPropertyName("image")]
+        public string image { get; set; }
 
-	}
+    }
 }
 

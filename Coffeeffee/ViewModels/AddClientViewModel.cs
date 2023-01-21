@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Coffeeffee.Interfaces;
@@ -14,6 +15,7 @@ namespace Coffeeffee.ViewModels
         private string name;
         private string surname;
         private string dentist;
+        private string image;
 
         public AddClientViewModel(IClient ClientService)
         {
@@ -30,6 +32,8 @@ namespace Coffeeffee.ViewModels
                 {
                     name = name,
                     surname = surname,
+                    dentist =  dentist,
+                    image= image
                 };
 
                 await _ClientService.AddClient(client);
@@ -67,6 +71,15 @@ namespace Coffeeffee.ViewModels
             {
                 dentist = value;
                 OnPropertyChanged(nameof(Dentist));
+            }
+        }
+        public string _Image
+        {
+            get => image;
+            set
+            {
+                image = value;
+                OnPropertyChanged(nameof(_Image));
             }
         }
 

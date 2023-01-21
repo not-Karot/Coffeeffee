@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -14,6 +15,7 @@ namespace Coffeeffee.ViewModels
         private string name;
         private string surname;
         private string dentist;
+        private string image;
         private readonly IClient _clientService;
 
         public ClientDetailsViewModel(IClient clientService)
@@ -32,7 +34,8 @@ namespace Coffeeffee.ViewModels
                     client_id = int.Parse(Client_id),
                     name = Name,
                     surname = Surname,
-                    dentist = Dentist
+                    dentist = Dentist,
+                    image = _Image
                 };
 
                 await _clientService.SaveClient(client);
@@ -55,6 +58,7 @@ namespace Coffeeffee.ViewModels
                     Name = client.name;
                     Surname = client.surname;
                     Dentist = client.dentist;
+                    _Image = client.image;
                 }
             }
             catch (Exception ex)
@@ -98,6 +102,15 @@ namespace Coffeeffee.ViewModels
             {
                 dentist = value;
                 OnPropertyChanged(nameof(Dentist));
+            }
+        }
+        public string _Image
+        {
+            get => image;
+            set
+            {
+                image = value;
+                OnPropertyChanged(nameof(_Image));
             }
         }
 

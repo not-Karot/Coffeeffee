@@ -46,7 +46,7 @@ namespace Coffeeffee.Services
         public async Task<IEnumerable<Client>> GetClientsByDentist(int dentist_id)
         {
             Console.WriteLine("££££££££££££££Apiclient£££££££££££");
-            var response = await _httpClient.GetAsync("client");
+            var response = await _httpClient.GetAsync($"client/?dentist_id={dentist_id}");
             response.EnsureSuccessStatusCode();
 
             var responseAsString = await response.Content.ReadAsStringAsync();
