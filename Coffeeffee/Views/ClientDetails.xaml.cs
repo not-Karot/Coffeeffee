@@ -1,18 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
 using Coffeeffee.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Coffeeffee.Models;
 
 namespace Coffeeffee.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ClientDetails : ContentPage
     {
-        public ClientDetails()
+        private readonly ClientDetailsViewModel _clientDetailsViewModel;
+        private readonly TeethColorViewModel _teethColorViewModel;
+        public string current_client_id;
+        public ClientDetails(Client client)
         {
+            
             InitializeComponent();
-            BindingContext = Startup.Resolve<ClientDetailsViewModel>();
+            current_client_id = client.client_id.ToString();
+            _clientDetailsViewModel = Startup.Resolve<ClientDetailsViewModel>();
+            BindingContext = _clientDetailsViewModel;
+
+            _teethColorViewModel = Startup.Resolve<TeethColorViewModel>();
+            BindingContext = _teethColorViewModel;
+
+        }
+
+        protected override async void OnAppearing()
+        {
+            Console.WriteLine("onappearing");
+
+            await _teethColorViewModel.PopulateTeethColors(current_client_id);
+           
+            Console.WriteLine(_teethColorViewModel.TeethColors.Count);
+
+        }
+
+        async void Login_Button(System.Object sender, System.EventArgs e)
+        {
+
+            await Navigation.PushAsync(new LoginPage());
+        }
+        async void Back_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        async void Take_Photo_Button(System.Object sender, System.EventArgs e)
+        {
+            var result = await MediaPicker.CapturePhotoAsync();
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+
+                await Navigation.PushAsync(new ImagePage(stream));
+            }
+
+        }
+        async void Home_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

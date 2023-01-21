@@ -4,6 +4,7 @@ using Coffeeffee.Models;
 using SkiaSharp;
 using Xamarin.Forms;
 using Xamarin.Essentials;
+using Coffeeffee.Views;
 
 namespace Coffeeffee
 {
@@ -46,6 +47,11 @@ namespace Coffeeffee
         async void Back_Clicked(System.Object sender, System.EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        async void PeopleClicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new Clients());
         }
 
         async void Take_Photo_Button(System.Object sender, System.EventArgs e)

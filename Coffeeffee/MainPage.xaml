@@ -15,11 +15,12 @@
         <Label Text="WhiteTeeth" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
                TextColor="#FFFFFF" FontSize="32" Margin="32,0,0,0" />
 
+        <!--
         <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
                 Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="30"
                 Clicked="Settings_Button"/>
-
+        -->
         <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
                HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand">
@@ -82,7 +83,8 @@
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconProfileFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32"
+                Clicked="Login_Button"/>
 
         <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconPeopleFull}"

@@ -71,7 +71,8 @@
 
             <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
                 TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconPeopleFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24" />
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24"
+                Clicked="PeopleClicked"/>
 
         </Grid>
     </ContentPage.Content>

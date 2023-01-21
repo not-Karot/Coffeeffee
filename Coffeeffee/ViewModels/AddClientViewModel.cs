@@ -30,6 +30,7 @@ namespace Coffeeffee.ViewModels
             {
                 var client = new Client
                 {
+
                     name = name,
                     surname = surname,
                     dentist =  dentist,

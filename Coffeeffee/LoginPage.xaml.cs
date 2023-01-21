@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Coffeeffee.Models;
 using Xamarin.Forms;
+using Coffeeffee.Views;
 using Amazon.CognitoIdentity;
 
 namespace Coffeeffee
@@ -49,10 +50,10 @@ namespace Coffeeffee
             }
         }
 
-        async void Button_Clicked(System.Object sender, System.EventArgs e)
+        async void PeopleClicked(System.Object sender, System.EventArgs e)
         {
 
-            ExecuteLoginCommand();
+            await Navigation.PushAsync(new Clients());
         }
 
 

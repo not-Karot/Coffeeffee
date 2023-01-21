@@ -83,7 +83,7 @@ namespace Coffeeffee.ViewModels
             set
             {
                 clients = value;
-                //OnPropertyChanged(nameof(Clients));
+                OnPropertyChanged(nameof(Clients));
             }
         }
 

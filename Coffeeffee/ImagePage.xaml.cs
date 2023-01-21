@@ -7,6 +7,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Syncfusion.SfImageEditor.XForms;
 using System.Drawing;
+using Coffeeffee.Views;
 using Color = System.Drawing.Color;
 
 namespace Coffeeffee
@@ -32,8 +33,12 @@ namespace Coffeeffee
         {
             await Navigation.PushAsync(new MainPage());
         }
+        async void PeopleClicked(System.Object sender, System.EventArgs e)
+        {
 
-        
+            await Navigation.PushAsync(new Clients());
+        }
+
         private void SfImageEditor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
 
@@ -46,8 +51,7 @@ namespace Coffeeffee
             //SKColor[] pixels = bitmap.Pixels;
 
             //bitmap.Pixels = pixels;
-            
-
+           
 
             BindingContext = this.identifier.GetRightTooth(bitmap);
             

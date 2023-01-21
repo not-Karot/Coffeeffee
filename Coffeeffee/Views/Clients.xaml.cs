@@ -42,11 +42,12 @@ namespace Coffeeffee.Views
         async void Client_Tapped(System.Object sender, System.EventArgs e)
         {
             var model = (sender as Image).BindingContext as Client;
+            Console.WriteLine($"client_id: {model.client_id}");
 
             //this is required in order to pass the views to animate
-            //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
+            SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.client_id.ToString());
 
-            //await Navigation.PushAsync(new ClientDetailsViewModel(model));
+            await Navigation.PushAsync(new ClientDetails(model));
         }
         async void Settings_Button(System.Object sender, System.EventArgs e)
         {
@@ -70,6 +71,13 @@ namespace Coffeeffee.Views
             }
 
         }
+
+        async void Login_Button(System.Object sender, System.EventArgs e)
+        {
+
+            await Navigation.PushAsync(new LoginPage());
+        }
+
         async void Home_Clicked(System.Object sender, System.EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());

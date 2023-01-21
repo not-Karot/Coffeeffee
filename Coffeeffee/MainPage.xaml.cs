@@ -75,7 +75,7 @@ namespace Coffeeffee
 
             await Navigation.PushAsync(new Clients());
         }
-        async void Settings_Button(System.Object sender, System.EventArgs e)
+        async void Login_Button(System.Object sender, System.EventArgs e)
         {
 
             await Navigation.PushAsync(new LoginPage());

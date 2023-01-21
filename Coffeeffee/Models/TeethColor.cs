@@ -8,17 +8,19 @@ namespace Coffeeffee.Models
 
 
         [JsonPropertyName("teethcolor_id")]
-        public string teethcolor_id { get; set; }
+        public int teethcolor_id { get; set; }
 
         [JsonPropertyName("color")]
         public string color { get; set; }
 
         [JsonPropertyName("date")]
-        private DateTime date { get; set; }
+        public DateTime date { get; set; }
 
         [JsonPropertyName("client")]
-        private Client client { get; set; }
+        public string client { get; set; }
 
+        [JsonPropertyName("image")]
+        public string image { get; set; }
 
         public TeethColor()
 		{
