@@ -7,6 +7,9 @@ using Coffeeffee.ViewModels;
 using SkiaSharp;
 using Xamarin.Essentials;
 
+using Coffeeffee.Models;
+using Plugin.SharedTransitions;
+
 namespace Coffeeffee.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -34,8 +37,17 @@ namespace Coffeeffee.Views
             _clientsViewModel.IsLoading = false;
             Console.WriteLine(_clientsViewModel.IsLoading);
             Console.WriteLine(_clientsViewModel.Clients.Count);
+
         }
-        
+        async void Client_Tapped(System.Object sender, System.EventArgs e)
+        {
+            var model = (sender as Image).BindingContext as Client;
+
+            //this is required in order to pass the views to animate
+            //SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, model.Title);
+
+            //await Navigation.PushAsync(new ClientDetailsViewModel(model));
+        }
         async void Settings_Button(System.Object sender, System.EventArgs e)
         {
 
