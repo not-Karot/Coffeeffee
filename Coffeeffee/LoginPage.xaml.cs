@@ -6,16 +6,21 @@ using Coffeeffee.Models;
 using Xamarin.Forms;
 using Coffeeffee.Views;
 using Amazon.CognitoIdentity;
+using Coffeeffee.ViewModels;
+
 
 namespace Coffeeffee
 {
     public partial class LoginPage : ContentPage
     {
         public Dentist user;
+        private DentistDetailsViewModel _dentistDetailsViewModel;
         public LoginPage()
         {
             InitializeComponent();
-            
+            _dentistDetailsViewModel = Startup.Resolve<DentistDetailsViewModel>();
+            BindingContext = _dentistDetailsViewModel;
+            _dentistDetailsViewModel.LoadDentist("1");
         }
 
         async void ExecuteLoginCommand()

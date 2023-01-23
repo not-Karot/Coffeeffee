@@ -15,12 +15,12 @@
         <Label Text="Your clients" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
                TextColor="#FFFFFF" FontSize="30" Margin="32,0,0,0" />
 
-        <!--
+        
         <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
-                Text="{x:Static icons:Icons.IconSettingsFull}" TextColor="{StaticResource green}" FontSize="30"
-                Clicked="Settings_Button"/>
-        -->
+                Text="{x:Static icons:Icons.IconAddPersonFull}" TextColor="{StaticResource green}" FontSize="30"
+                Clicked="Add_Client_Clicked"/>
+        
         <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
 
 

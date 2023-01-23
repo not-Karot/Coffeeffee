@@ -28,7 +28,8 @@ namespace Coffeeffee.Services
 
         public async Task AddTeethColor(MultipartFormDataContent content)
         {
-            var response = await _httpTeethColor.PostAsync("teethColor",content);
+            Console.WriteLine("api");
+            var response = await _httpTeethColor.PostAsync("teethColor", content);
 
             response.EnsureSuccessStatusCode();
         }

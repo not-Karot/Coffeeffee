@@ -30,22 +30,13 @@ namespace Coffeeffee.ViewModels
 
         private async Task SaveTeethcolor()
         {
-            Console.WriteLine("add");
+           
             try
             {
                 var content = new MultipartFormDataContent();
-
-
-                Console.WriteLine("ByteImage");
-                content.Add(new ByteArrayContent(ByteImage), "image", "image.jpg");
-                Console.WriteLine("Color");
-                content.Add(new StringContent(Color), "color");
-
-                Console.WriteLine("Client");
-
-                content.Add(new StringContent($"http://whitesite.fly.dev/client/{Client}/"), "client");
-
-                Console.WriteLine("DateTime");
+                content.Add(new ByteArrayContent(byteImage), "image", "image.jpg");
+                content.Add(new StringContent(color), "color");
+                content.Add(new StringContent($"http://whitesite.fly.dev/client/{client}/"), "client");
                 var currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
                 content.Add(new StringContent(currentDate), "date");

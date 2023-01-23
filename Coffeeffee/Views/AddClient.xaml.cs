@@ -15,8 +15,19 @@ namespace Coffeeffee.Views
         public AddClient()
         {
             InitializeComponent();
-
             BindingContext = Startup.Resolve<AddClientViewModel>();
+        }
+
+        async void PeopleClicked(System.Object sender, System.EventArgs e)
+        {
+
+            await Navigation.PushAsync(new Clients());
+        }
+
+
+        async void Back_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

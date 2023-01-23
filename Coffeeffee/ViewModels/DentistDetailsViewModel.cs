@@ -46,7 +46,7 @@ namespace Coffeeffee.ViewModels
             }
         }
 
-        private async void LoadDentist(string dentistId)
+        public async void LoadDentist(string dentistId)
         {
             try
             {
