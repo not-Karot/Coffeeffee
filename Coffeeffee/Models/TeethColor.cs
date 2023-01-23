@@ -20,7 +20,7 @@ namespace Coffeeffee.Models
         public string client { get; set; }
 
         [JsonPropertyName("image")]
-        public string image { get; set; }
+        public byte[] image { get; set; }
 
         public TeethColor()
 		{

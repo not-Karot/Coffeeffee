@@ -7,24 +7,29 @@ namespace Coffeeffee.Models
     {
 
         [JsonPropertyName("dentist_id")]
-        public string dentist_id { get; set; }
+        public int dentist_id { get; set; }
 
         [JsonPropertyName("username")]
         public string username { get; set; }
 
         [JsonPropertyName("email")]
-        private string email { get; set; }
+        public string email { get; set; }
 
         [JsonPropertyName("password")]
-        private string password { get; set; }
+        public string password { get; set; }
 
         public Dentist()
         {
         }
-        public Dentist(string dentist_id)
+        public Dentist(int dentist_id)
         {
             
             this.dentist_id = dentist_id;
+        }
+        public Dentist(string access_token)
+        {
+
+            ;
         }
     }
 }

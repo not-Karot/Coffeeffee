@@ -26,18 +26,12 @@ namespace Coffeeffee.Views
 
             _clientsViewModel = Startup.Resolve<ClientsViewModel>();
             BindingContext = _clientsViewModel;
-            Console.WriteLine(_clientsViewModel.Clients);
+            
         }
 
         protected override async void OnAppearing()
         {
-            Console.WriteLine("onappearing");
-            _clientsViewModel.IsLoading = true;
             await _clientsViewModel.PopulateClients();
-            _clientsViewModel.IsLoading = false;
-            Console.WriteLine(_clientsViewModel.IsLoading);
-            Console.WriteLine(_clientsViewModel.Clients.Count);
-
         }
         async void Client_Tapped(System.Object sender, System.EventArgs e)
         {

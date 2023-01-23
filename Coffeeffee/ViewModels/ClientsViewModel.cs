@@ -15,17 +15,7 @@ namespace Coffeeffee.ViewModels
         public ObservableCollection<Client> clients;
         private Client selectedClient;
         private readonly IClient _clientService;
-        private bool isLoading= true;
-
-        public bool IsLoading
-        {
-            get => isLoading;
-            set
-            {
-                isLoading = value;
-                OnPropertyChanged(nameof(IsLoading));
-            }
-        }
+        
         public ClientsViewModel(IClient ClientService)
         {
             _clientService = ClientService;
@@ -52,15 +42,12 @@ namespace Coffeeffee.ViewModels
             try
             {
                 Clients.Clear();
-                isLoading = true;
                 var clients = await _clientService.GetClientsByDentist(1);
-                Console.WriteLine("populating");
+                
                 foreach (var client in clients)
                 {
                     Clients.Add(client);
                 }
-                isLoading = false;
-                Console.WriteLine("populated");
                 
             }
             catch (Exception ex)

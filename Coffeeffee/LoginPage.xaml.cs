@@ -61,5 +61,11 @@ namespace Coffeeffee
         {
             await Navigation.PopAsync();
         }
+
+        void Login_Button(System.Object sender, System.EventArgs e)
+        {
+            ExecuteLoginCommand();
+        }
+
     }
 }

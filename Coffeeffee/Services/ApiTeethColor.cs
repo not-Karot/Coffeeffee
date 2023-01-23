@@ -44,7 +44,7 @@ namespace Coffeeffee.Services
 
         public async Task<IEnumerable<TeethColor>> GetTeethColorsByClient(string client_id)
         {
-            Console.WriteLine("££££££££££££££ApiteethColor£££££££££££");
+            
             var response = await _httpTeethColor.GetAsync($"teethColor/?client_id={client_id}");
             response.EnsureSuccessStatusCode();
 

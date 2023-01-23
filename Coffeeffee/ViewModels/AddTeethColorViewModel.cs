@@ -11,11 +11,11 @@ namespace Coffeeffee.ViewModels
     public class AddTeethColorViewModel : BaseViewModel
     {
 
-        private readonly ITeethColor _TeethColorService;
+        public readonly ITeethColor _TeethColorService;
         private int teethcolor_id;
         private string color;
         private DateTime date;
-        private string image;
+        private byte[] image;
 
         private string client;
 
@@ -79,7 +79,7 @@ namespace Coffeeffee.ViewModels
             }
         }
 
-        public string _Image
+        public byte[] _Image
         {
             get => image;
             set

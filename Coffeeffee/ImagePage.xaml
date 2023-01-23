@@ -62,8 +62,9 @@
             </Grid>
 
             <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconCameraFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" />
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconAddPersonFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"
+                Clicked="SaveClicked"/>
 
             <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Home_Clicked"
