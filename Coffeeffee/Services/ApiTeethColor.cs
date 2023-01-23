@@ -26,6 +26,13 @@ namespace Coffeeffee.Services
             response.EnsureSuccessStatusCode();
         }
 
+        public async Task AddTeethColor(MultipartFormDataContent content)
+        {
+            var response = await _httpTeethColor.PostAsync("teethColor",content);
+
+            response.EnsureSuccessStatusCode();
+        }
+
         public async Task DeleteTeethColor(TeethColor teethColor)
         {
             var response = await _httpTeethColor.DeleteAsync($"teethColor/{teethColor.teethcolor_id}");

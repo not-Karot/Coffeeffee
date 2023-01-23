@@ -39,6 +39,7 @@ namespace Coffeeffee
             services.AddTransient<TeethColorViewModel>();
             services.AddTransient<DentistsViewModel>();
             services.AddTransient<DentistDetailsViewModel>();
+            services.AddTransient<AddTeethColorViewModel>();
 
             serviceProvider = services.BuildServiceProvider();
         }

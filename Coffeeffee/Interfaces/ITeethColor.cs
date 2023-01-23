@@ -2,6 +2,7 @@
 using Coffeeffee.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace Coffeeffee.Interfaces
 {
@@ -12,6 +13,7 @@ namespace Coffeeffee.Interfaces
         Task AddTeethColor(TeethColor teethcolor);
         Task SaveTeethColor(TeethColor teethcolor);
         Task DeleteTeethColor(TeethColor teethcolor);
+        Task AddTeethColor(MultipartFormDataContent content);
     }
 }
 

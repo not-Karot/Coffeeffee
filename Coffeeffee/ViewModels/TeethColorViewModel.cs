@@ -42,13 +42,12 @@ namespace Coffeeffee.ViewModels
             {
                 TeethColors.Clear();
                 var teethColors = await _teethColorService.GetTeethColorsByClient(client_id);
-                Console.WriteLine("populating");
+                
                 foreach (var teethColor in teethColors)
                 {
                     TeethColors.Add(teethColor);
                 }
                 
-                Console.WriteLine("populated");
 
             }
             catch (Exception ex)

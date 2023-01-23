@@ -14,6 +14,8 @@ using Coffeeffee.ViewModels;
 using Color = System.Drawing.Color;
 using System.Linq;
 using System.Net.Http;
+using Amazon.Runtime.Internal;
+using Amazon.SecurityToken.Model;
 
 namespace Coffeeffee
 {
@@ -24,7 +26,7 @@ namespace Coffeeffee
         ColorIdentifier identifier = new ColorIdentifier();
         private readonly ClientsViewModel _clientsViewModel;
         private readonly AddTeethColorViewModel _teethAddColorViewModel;
-        private Stream image_stream;
+        private byte[] fileBytes;
 
         private Tooth currentTooth = new Tooth("Result tooth will be shown here", "Coffeeffee.Resources.Scala_vita.png", Color.FromArgb(0, 0, 0), "Scala_vita.png");
 
@@ -68,17 +70,12 @@ namespace Coffeeffee
             var action = await DisplayActionSheet("Seleziona un cliente", "Annulla", null, clientDict.Keys.ToArray());
             if (action != "Annulla")
             {
-                var imageByteArray = new byte[image_stream.Length];
-                image_stream.Read(imageByteArray, 0, (int)image_stream.Length);
-                var teethcolor = new TeethColor
-                {
-                    color = currentTooth.name,
-                    date = DateTime.Now,
-                    client = clientDict[action].ToString(),
-                    image = imageByteArray
-            };
-                _teethAddColorViewModel._TeethColorService.AddTeethColor(teethcolor);
+                
+                _teethAddColorViewModel.ByteImage = fileBytes;
+                _teethAddColorViewModel.Color = currentTooth.name;
+                _teethAddColorViewModel.Client = clientDict[action].ToString();
 
+                _teethAddColorViewModel.SaveTeethColorCommand.Execute(null);
 
             }
             //await Navigation.PushAsync(new Clients());
@@ -88,21 +85,26 @@ namespace Coffeeffee
         {
 
             args.Cancel = true;
-            var stream = args.Stream;
-            image_stream = stream;
-            
-            SKBitmap bitmap =  SKBitmap.Decode(stream);
-
-           
-
-            BindingContext = this.identifier.GetRightTooth(bitmap);
-            currentTooth = this.identifier.GetRightTooth(bitmap);
-            Console.WriteLine(this.identifier.GetRightTooth(bitmap).name);
 
 
+            using (var stream = args.Stream) // use "using" to dispose the stream after use
+            {
+                
+                using (var memoryStream = new MemoryStream())
+                {
+                    stream.CopyTo(memoryStream);
+                    fileBytes = memoryStream.ToArray();
+                }
+
+                var bitmap = SKBitmap.Decode(fileBytes);
+                BindingContext = this.identifier.GetRightTooth(bitmap);
+                currentTooth = this.identifier.GetRightTooth(bitmap);
+                Console.WriteLine(this.identifier.GetRightTooth(bitmap).name);
+            }
         }
 
 
-        
+
+
     }
 }

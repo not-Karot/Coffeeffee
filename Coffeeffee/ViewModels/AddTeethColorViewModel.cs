@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Coffeeffee.Interfaces;
@@ -15,31 +16,41 @@ namespace Coffeeffee.ViewModels
         private int teethcolor_id;
         private string color;
         private DateTime date;
-        private byte[] image;
-
+        private string image;
+        private byte[] byteImage;
         private string client;
 
         public AddTeethColorViewModel(ITeethColor teethColorService)
         {
             _TeethColorService = teethColorService;
-
+            Console.WriteLine("save");
             SaveTeethColorCommand = new Command(async () => await SaveTeethcolor());
 
         }
 
         private async Task SaveTeethcolor()
         {
+            Console.WriteLine("add");
             try
             {
-                var teethcolor = new TeethColor
-                {
-                    color = color,
-                    date = date,
-                    client = client,
-                    image = image
-                };
+                var content = new MultipartFormDataContent();
 
-                await _TeethColorService.AddTeethColor(teethcolor);
+
+                Console.WriteLine("ByteImage");
+                content.Add(new ByteArrayContent(ByteImage), "image", "image.jpg");
+                Console.WriteLine("Color");
+                content.Add(new StringContent(Color), "color");
+
+                Console.WriteLine("Client");
+
+                content.Add(new StringContent($"http://whitesite.fly.dev/client/{Client}/"), "client");
+
+                Console.WriteLine("DateTime");
+                var currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                content.Add(new StringContent(currentDate), "date");
+
+                await _TeethColorService.AddTeethColor(content);
 
                 await Shell.Current.GoToAsync("..");
             }
@@ -48,6 +59,7 @@ namespace Coffeeffee.ViewModels
                 Console.WriteLine(ex.Message);
             }
         }
+        
 
         public string Color
         {
@@ -79,13 +91,23 @@ namespace Coffeeffee.ViewModels
             }
         }
 
-        public byte[] _Image
+        public string _Image
         {
             get => image;
             set
             {
                 image = value;
                 OnPropertyChanged(nameof(_Image));
+            }
+        }
+
+        public byte[] ByteImage
+        {
+            get => byteImage;
+            set
+            {
+                byteImage = value;
+                OnPropertyChanged(nameof(ByteImage));
             }
         }
 
