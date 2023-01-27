@@ -5,7 +5,10 @@ using System.Windows.Input;
 using Coffeeffee.Interfaces;
 using Coffeeffee.Models;
 using Xamarin.Forms;
-
+using Plugin.SharedTransitions;
+using Xamarin.Forms.Xaml;
+using System.Linq;
+using System.Text;
 namespace Coffeeffee.ViewModels
 {
     public class AddClientViewModel : BaseViewModel
@@ -39,11 +42,12 @@ namespace Coffeeffee.ViewModels
 
                 await _ClientService.AddClient(client);
 
-                await Shell.Current.GoToAsync("..");
+                NavigateToHome?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                NavigateToHome?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -83,6 +87,8 @@ namespace Coffeeffee.ViewModels
                 OnPropertyChanged(nameof(_Image));
             }
         }
+
+        public event EventHandler<EventArgs> NavigateToHome;
 
         public ICommand SaveClientCommand { get; }
     }

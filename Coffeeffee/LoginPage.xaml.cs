@@ -20,7 +20,7 @@ namespace Coffeeffee
             InitializeComponent();
             _dentistDetailsViewModel = Startup.Resolve<DentistDetailsViewModel>();
             BindingContext = _dentistDetailsViewModel;
-            _dentistDetailsViewModel.LoadDentist("1");
+            
         }
 
         async void ExecuteLoginCommand()
@@ -38,10 +38,9 @@ namespace Coffeeffee
                     );
                 var accessToken = authResult?.AccessToken;
                 user = new Dentist(accessToken);
-                Console.WriteLine("$$$$$$$$$$$$$");
-
+                _dentistDetailsViewModel.LoadDentist("1");
+                
                 Console.WriteLine(accessToken);
-                Console.WriteLine("$$$$$$$$$$$$$");
                 foreach (KeyValuePair<string, string> kvp in authResult.Properties)
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);

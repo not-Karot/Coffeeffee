@@ -12,21 +12,10 @@
              ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="True">
     <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
 
-        <Label Text="Your account" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
+        <Label Text="Add a client" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
                TextColor="#FFFFFF" FontSize="32" Margin="32,0,0,0" />
 
         
-
-        <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
-               HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span TextColor="#FFFFFF" Text="Choose the kind of treatment you would like to take" />
-                    
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
 
         <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
 
@@ -35,33 +24,47 @@
             <Path Fill="#FFFFFF" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
                   Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
         </Grid>
-        <Frame Grid.Column="0" Margin="60,100,60,0"
+        <Frame Grid.Column="0" Margin="60,0,60,0"
                                 Grid.Row="1" Grid.ColumnSpan="3"
-                                HasShadow="True" IsClippedToBounds="True" Padding="60,60,60,60" CornerRadius="30" BackgroundColor="{StaticResource white}">
+                                HasShadow="True" IsClippedToBounds="True" Padding="60,20,60,60" CornerRadius="30" BackgroundColor="{StaticResource white}">
 
         <StackLayout >
             <StackLayout>
                 <Label Text="Name" HorizontalTextAlignment="Center"/>
-                <Entry Text="{Binding Name}"/>
+                <Entry Text="{Binding Name}" />
             </StackLayout>
 
-            <StackLayout Margin="0,40,0,0">
+            <StackLayout Margin="0,0,0,0">
                 <Label Text="Surname" HorizontalTextAlignment="Center"/>
                 <Entry Text="{Binding Surname}" />
             </StackLayout>
 
-            <Button Text="Save" 
-                    Command="{Binding SaveClientCommand}" />
-           
+            <Label Text="Picture" HorizontalTextAlignment="Center"/>
+             
+                <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
 
+                <Button TextColor="{StaticResource green}" FontSize="24" FontFamily="Icons" Text="{x:Static icons:Icons.IconCameraFull}" VerticalOptions="Center"
+                    HorizontalOptions="Center" Clicked="Take_Photo_Button"/>
+        
+                <Button TextColor="{StaticResource green}" FontSize="24" FontFamily="Icons" Text="{x:Static icons:Icons.IconGalleryFull}" VerticalOptions="Center"
+                    HorizontalOptions="Center" Grid.Column="2" Clicked="Load_Photo_Button"/>
+                </Grid>
+            <Image Source="{Binding _Image}" Scale="0.8" Margin="0"/>
+                
+            
         </StackLayout>
 
         </Frame>
        
         
         <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
-                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCameraFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"/>
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconAddPersonFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"
+                Command="{Binding SaveClientCommand}" />
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"

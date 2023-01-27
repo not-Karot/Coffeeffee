@@ -48,6 +48,7 @@ namespace Coffeeffee.ViewModels
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                await Shell.Current.GoToAsync("..");
             }
         }
         
