@@ -30,7 +30,7 @@ namespace Coffeeffee
             {
                 var url = new Uri("https://whiteteeth.auth.eu-west-3.amazoncognito.com/login?client_id=c37hj343ukrcs60p1pp62867f&response_type=code&scope=email+openid+phone&redirect_uri=whiteteeth://");
                 
-                var callbackUrl = new Uri("Coffeeffee://");
+                var callbackUrl = new Uri("whiteteeth://");
 
                 var authResult = await WebAuthenticator.AuthenticateAsync(
                     url,

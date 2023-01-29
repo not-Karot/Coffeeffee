@@ -43,12 +43,12 @@ namespace Coffeeffee.ViewModels
 
                 await _TeethColorService.AddTeethColor(content);
 
-                await Shell.Current.GoToAsync("..");
+                NavigateToHome?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                await Shell.Current.GoToAsync("..");
+                NavigateToHome?.Invoke(this, EventArgs.Empty);
             }
         }
         
@@ -104,6 +104,7 @@ namespace Coffeeffee.ViewModels
         }
 
         public ICommand SaveTeethColorCommand { get; }
+        public event EventHandler<EventArgs> NavigateToHome;
     }
 
 }

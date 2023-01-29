@@ -38,11 +38,16 @@ namespace Coffeeffee
             BindingContext = _clientsViewModel;
 
             _teethAddColorViewModel = Startup.Resolve<AddTeethColorViewModel>();
+            _teethAddColorViewModel.NavigateToHome += OnNavigateToHome;
             BindingContext = _teethAddColorViewModel;
 
             image.Source = ImageSource.FromStream(() => stream);
             BindingContext = currentTooth;
 
+        }
+        private void OnNavigateToHome(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
         }
         protected override async void OnAppearing()
         {
