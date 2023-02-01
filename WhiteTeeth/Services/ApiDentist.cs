@@ -67,7 +67,7 @@ namespace WhiteTeeth.Services
                     var userInfo = JsonSerializer.Deserialize<Dictionary<string, string>>(userInfoString);
                     return new Dentist
                     {
-                        dentist_id = int.Parse(userInfo["dentist_id"]),
+                        dentist_id = int.Parse(userInfo["nickname"]),
                         username = userInfo["username"],
                         email = userInfo["email"],
                     };

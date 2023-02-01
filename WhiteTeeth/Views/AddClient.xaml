@@ -30,16 +30,16 @@
 
         <StackLayout >
             <StackLayout>
-                <Label Text="Name" HorizontalTextAlignment="Center"/>
+                <Label Text="Name" HorizontalTextAlignment="Center" TextColor="{StaticResource green}"/>
                 <Entry Text="{Binding Name}" />
             </StackLayout>
 
             <StackLayout Margin="0,0,0,0">
-                <Label Text="Surname" HorizontalTextAlignment="Center"/>
+                <Label Text="Surname" HorizontalTextAlignment="Center" TextColor="{StaticResource green}"/>
                 <Entry Text="{Binding Surname}" />
             </StackLayout>
 
-            <Label Text="Picture" HorizontalTextAlignment="Center"/>
+            <Label Text="Picture" HorizontalTextAlignment="Center" TextColor="{StaticResource green}"/>
              
                 <Grid HorizontalOptions="Center">
                 <Grid.ColumnDefinitions>
