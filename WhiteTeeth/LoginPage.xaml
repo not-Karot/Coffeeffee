@@ -17,19 +17,25 @@
 
         <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
                 VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
-                Text="{x:Static icons:Icons.IconPeopleFull}" TextColor="{StaticResource green}" FontSize="30"
+                Text="{x:Static icons:Icons.IconIDEmpty}" TextColor="{StaticResource green}" FontSize="30"
                 Clicked="Login_Button"/>
+        
+        <Frame Grid.Column="0" Margin="60,10,60,0"
+               Grid.Row="1" Grid.ColumnSpan="3"
+                HasShadow="True" IsClippedToBounds="True" Padding="60,60,60,0" CornerRadius="30" BackgroundColor="{StaticResource white}">
+            <Grid>
+                
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Text="Username" HorizontalTextAlignment="Center" TextColor="Black"/>
+                <Label Style="{StaticResource product_subtitle}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Username}" HorizontalTextAlignment="Center"/>
 
-        <Label Margin="32,0" Grid.ColumnSpan="3" LineHeight="1.4" Grid.Row="2" FontSize="16"
-               HorizontalTextAlignment="Center" FontFamily="JosefinSans-Regular" HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span TextColor="#FFFFFF" Text="Choose the kind of treatment you would like to take" />
-                    
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+           
+                <Label Grid.Row="2" Grid.ColumnSpan="2" Text="Email" HorizontalTextAlignment="Center" TextColor="Black"/>
+                <Label Style="{StaticResource product_subtitle}" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding Email}" HorizontalTextAlignment="Center"/>
+
+            </Grid>
+       </Frame>
+        
+        
 
         <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
 
@@ -38,33 +44,13 @@
             <Path Fill="#FFFFFF" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
                   Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
         </Grid>
-        <Frame Grid.Column="0" Margin="60,100,60,0"
-                                Grid.Row="1" Grid.ColumnSpan="3"
-                                HasShadow="True" IsClippedToBounds="True" Padding="60,60,60,60" CornerRadius="30" BackgroundColor="{StaticResource white}">
-
-        <StackLayout >
-            <StackLayout>
-                <Label Text="Username" HorizontalTextAlignment="Center"/>
-                <Label Style="{StaticResource product_subtitle}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Username}" HorizontalTextAlignment="Center"/>
-
-            </StackLayout>
-
-            <StackLayout Margin="0,40,0,0">
-                <Label Text="Email" HorizontalTextAlignment="Center"/>
-                <Label Style="{StaticResource product_subtitle}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Email}" HorizontalTextAlignment="Center"/>
-
-            </StackLayout>
-
-           
-
-        </StackLayout>
-
-        </Frame>
+        
        
         
         <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCameraFull}"
-                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"/>
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"
+                />
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"

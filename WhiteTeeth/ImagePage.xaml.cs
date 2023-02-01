@@ -104,7 +104,6 @@ namespace WhiteTeeth
                 var bitmap = SKBitmap.Decode(fileBytes);
                 BindingContext = this.identifier.GetRightTooth(bitmap);
                 currentTooth = this.identifier.GetRightTooth(bitmap);
-                Console.WriteLine(this.identifier.GetRightTooth(bitmap).name);
             }
         }
 

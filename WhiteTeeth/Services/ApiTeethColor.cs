@@ -28,7 +28,7 @@ namespace WhiteTeeth.Services
 
         public async Task AddTeethColor(MultipartFormDataContent content)
         {
-            Console.WriteLine("api");
+            
             var response = await _httpTeethColor.PostAsync("teethColor", content);
 
             response.EnsureSuccessStatusCode();

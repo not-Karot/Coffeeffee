@@ -29,11 +29,10 @@ namespace WhiteTeeth.Views
 
         protected override async void OnAppearing()
         {
-            Console.WriteLine("onappearing");
+            
 
             await _teethColorViewModel.PopulateTeethColors(current_client_id);
            
-            Console.WriteLine(_teethColorViewModel.TeethColors.Count);
 
         }
 

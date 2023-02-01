@@ -23,7 +23,6 @@ namespace WhiteTeeth.ViewModels
         public AddTeethColorViewModel(ITeethColor teethColorService)
         {
             _TeethColorService = teethColorService;
-            Console.WriteLine("save");
             SaveTeethColorCommand = new Command(async () => await SaveTeethcolor());
 
         }

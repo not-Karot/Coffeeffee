@@ -39,14 +39,14 @@ namespace WhiteTeeth
                 var accessToken = authResult?.AccessToken;
                 user = await _dentistDetailsViewModel.GetUser(accessToken);
                 _dentistDetailsViewModel.LoadDentist("1");
-                
+                /*
                 Console.WriteLine(accessToken);
                 foreach (KeyValuePair<string, string> kvp in authResult.Properties)
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
                 }
+                */
                 
-
             }
             catch(TaskCanceledException e)
             {
