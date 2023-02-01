@@ -50,7 +50,7 @@
         <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="48" WidthRequest="48"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconCameraFull}"
                 HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"
-                />
+                Clicked="Take_Photo_Button"/>
 
         <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="#FFFFFF" HeightRequest="64" WidthRequest="64"
                 TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}"

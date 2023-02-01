@@ -70,6 +70,19 @@ namespace WhiteTeeth
         {
             ExecuteLoginCommand();
         }
+        async void Take_Photo_Button(System.Object sender, System.EventArgs e)
+        {
+            var result = await MediaPicker.CapturePhotoAsync();
+
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+
+                await Navigation.PushAsync(new ImagePage(stream));
+            }
+
+
+        }
 
     }
 }

@@ -74,6 +74,8 @@ namespace WhiteTeeth.Services
                 }
                 catch
                 {
+                    //TODO sometimes accesstoken is null, fix the issue and remove the default dentist
+                    
                     return new Dentist
                     {
                         dentist_id = 1,
