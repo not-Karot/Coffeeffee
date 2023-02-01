@@ -5,6 +5,10 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Coffeeffee.Interfaces;
 using Coffeeffee.Models;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text.Json;
 
 namespace Coffeeffee.ViewModels
 {
@@ -61,6 +65,11 @@ namespace Coffeeffee.ViewModels
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+        public async Task<Dentist> GetUser(string access_token)
+        {
+            return await _dentistService.GetUser(access_token);
+            
         }
 
         public string Dentist_id

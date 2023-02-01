@@ -12,6 +12,7 @@ namespace Coffeeffee.Interfaces
         Task AddDentist(Dentist dentist);
         Task SaveDentist(Dentist dentist);
         Task DeleteDentist(Dentist dentist);
+        Task<Dentist> GetUser(string access_token);
     }
 }
 

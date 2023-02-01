@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Coffeeffee.Interfaces;
@@ -52,6 +53,26 @@ namespace Coffeeffee.Services
         public async Task SaveDentist(Dentist dentist)
         {
             throw new NotImplementedException();
+        }
+        public async Task<Dentist> GetUser(string access_token)
+        {
+            using (var client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", access_token);
+                var userInfoResponse = await client.GetAsync("https://whiteteeth.auth.eu-west-3.amazoncognito.com/oauth2/userInfo");
+                userInfoResponse.EnsureSuccessStatusCode();
+                var userInfoString = await userInfoResponse.Content.ReadAsStringAsync();
+                var userInfo = JsonSerializer.Deserialize<Dictionary<string, string>>(userInfoString);
+                return new Dentist
+                {
+                    dentist_id = int.Parse(userInfo["dentist_id"]),
+                    username = userInfo["username"],
+                    email = userInfo["email"],
+                };
+
+            }
+
+            ;
         }
     }
 }

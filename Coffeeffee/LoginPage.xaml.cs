@@ -37,7 +37,7 @@ namespace Coffeeffee
                     callbackUrl
                     );
                 var accessToken = authResult?.AccessToken;
-                user = new Dentist(accessToken);
+                user = await _dentistDetailsViewModel.GetUser(accessToken);
                 _dentistDetailsViewModel.LoadDentist("1");
                 
                 Console.WriteLine(accessToken);
