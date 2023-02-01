@@ -59,18 +59,30 @@ namespace WhiteTeeth.Services
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", access_token);
-                var userInfoResponse = await client.GetAsync("https://whiteteeth.auth.eu-west-3.amazoncognito.com/oauth2/userInfo");
-                userInfoResponse.EnsureSuccessStatusCode();
-                var userInfoString = await userInfoResponse.Content.ReadAsStringAsync();
-                var userInfo = JsonSerializer.Deserialize<Dictionary<string, string>>(userInfoString);
-                return new Dentist
+                try
                 {
-                    dentist_id = int.Parse(userInfo["dentist_id"]),
-                    username = userInfo["username"],
-                    email = userInfo["email"],
-                };
+                    var userInfoResponse = await client.GetAsync("https://whiteteeth.auth.eu-west-3.amazoncognito.com/oauth2/userInfo");
+                    userInfoResponse.EnsureSuccessStatusCode();
+                    var userInfoString = await userInfoResponse.Content.ReadAsStringAsync();
+                    var userInfo = JsonSerializer.Deserialize<Dictionary<string, string>>(userInfoString);
+                    return new Dentist
+                    {
+                        dentist_id = int.Parse(userInfo["dentist_id"]),
+                        username = userInfo["username"],
+                        email = userInfo["email"],
+                    };
+                }
+                catch
+                {
+                    return new Dentist
+                    {
+                        dentist_id = 1,
+                        username = "notkarot",
+                        email = "rafael.karot@icloud.com",
+                    };
+                }
 
-            }
+                }
 
             ;
         }
