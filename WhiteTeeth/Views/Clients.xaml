@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage BackgroundColor="{StaticResource green}" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" x:Class="WhiteTeeth.Views.Clients"
+             xmlns:models="clr-namespace:WhiteTeeth.Models"
+             xmlns:icons="clr-namespace:WhiteTeeth.Styles"
+             xmlns:local="clr-namespace:WhiteTeeth.Controls"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             ios:Page.UseSafeArea="true" NavigationPage.HasNavigationBar="False">
+    <Grid Grid.RowDefinitions="120,*,64,100" ColumnDefinitions="*,*,*">
+
+        <Label Text="Your clients" Grid.ColumnSpan="2" VerticalOptions="Center" FontFamily="JosefinSans-Bold"
+               TextColor="#FFFFFF" FontSize="30" Margin="32,0,0,0" />
+
+        
+        <Button BackgroundColor="#FFFFFF" FontFamily="Icons" HeightRequest="52" WidthRequest="52" HorizontalOptions="End"
+                VerticalOptions="Center" Grid.Column="2" CornerRadius="8" Margin="0,0,32,0"
+                Text="{x:Static icons:Icons.IconAddPersonFull}" TextColor="{StaticResource green}" FontSize="30"
+                Clicked="Add_Client_Clicked"/>
+        
+        <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="#ffffff" Margin="0,0,0,-40" HeightRequest="40" />
+
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Path Fill="#FFFFFF" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
+                  Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
+        </Grid>
+
+        <CollectionView Grid.Column="0" Margin="60,10,60,0"
+                                Grid.Row="1" Grid.ColumnSpan="3"
+                                VerticalScrollBarVisibility="Never" 
+                                ItemsSource="{Binding Clients}"
+                                VerticalOptions="StartAndExpand">
+                                <CollectionView.ItemsLayout>
+                                   <GridItemsLayout Orientation="Vertical"
+                                                    Span="1"
+                                                    VerticalItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame HasShadow="True" IsClippedToBounds="True" Padding="60,60,60,0" CornerRadius="30" BackgroundColor="{StaticResource white}">
+                                            <Grid RowSpacing="10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="150" />
+                                                    <RowDefinition Height="14" />
+                                                    <RowDefinition Height="30" />
+                                                    <RowDefinition Height="0" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Image Margin="-24,-24,-24,0" Source="{Binding image}" Grid.ColumnSpan="2" Aspect="AspectFill"                                   
+                                                sharedTransitions:Transition.Name="ClientImage"
+                                                sharedTransitions:Transition.Group="{Binding client_id}">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="Client_Tapped" />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                                <Label Style="{StaticResource product_subtitle}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding name}" HorizontalTextAlignment="Center"/>
+                                                <Label Style="{StaticResource product_title}" Grid.ColumnSpan="2" Grid.Row="2" Text="{Binding surname}" HorizontalTextAlignment="Center" />
+   
+                                            </Grid>
+                                        </Frame>
+                                        
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+        
+       
+        
+        <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconCameraFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24" Clicked="Take_Photo_Button"/>
+
+        <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Home_Clicked"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+
+        <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconProfileFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24"
+                Clicked="Login_Button"/>
+
+
+    </Grid>
+</ContentPage>

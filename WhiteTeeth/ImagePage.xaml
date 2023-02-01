@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WhiteTeeth.ImagePage"
+    xmlns:icons="clr-namespace:WhiteTeeth.Styles"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="{StaticResource white}"
+    NavigationPage.HasNavigationBar="True"
+    xmlns:Syncfusion="clr-namespace:Syncfusion.SfImageEditor.XForms;assembly=Syncfusion.SfImageEditor.XForms"
+    >
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="400" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+
+            <Frame Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Padding="0,40,0,0" Margin="0,-44,0,0" HasShadow="False" CornerRadius="40">
+                <Syncfusion:SfImageEditor HeightRequest="400" x:Name="image" ImageSaving="SfImageEditor_ImageSaving"/>
+            </Frame>
+
+            <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalOptions="Start" Padding="6,0,6,0">
+
+                <Frame Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="1" >
+                    <Label Text="{Binding name}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontFamily="JosefinSans-Regular" FontSize="Default" LineHeight="1" />
+
+                </Frame>
+                <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Image  Source="{Binding image}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+
+                </Frame>
+            
+            </Grid>
+            
+            
+            <ScrollView Grid.Row="2" Grid.ColumnSpan="3" >
+                <Grid Padding="40,32" ColumnSpacing="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions> 
+                </Grid>
+            </ScrollView>
+           
+            
+            <BoxView Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" VerticalOptions="End" BackgroundColor="{StaticResource green}" Margin="0,0,0,-40" HeightRequest="40" />
+
+            <Grid Grid.Row="3" Grid.ColumnSpan="3">
+                <Path Fill="{StaticResource green}" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="UniformToFill" 
+                  Data="M615.59,178.35c-86.88,0-129.26-89.18-129.26-89.18S435.14,14,375,14,263.63,89.17,263.63,89.17s-42.2,89.18-129.26,89.18S0,0,0,0V200H750V0S702.61,178.35,615.59,178.35Z" />
+            </Grid>
+
+            <Button Grid.Row="3" Margin="20,0,0,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconAddPersonFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="0" CornerRadius="24"
+                Clicked="SaveClicked"/>
+
+            <Button Grid.Row="3" FontFamily="Icons" BackgroundColor="{StaticResource white}" HeightRequest="64" WidthRequest="64"
+                TextColor="{StaticResource green}" Text="{x:Static icons:Icons.IconHomeFull}" Clicked="Home_Clicked"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="24" Grid.Column="1" CornerRadius="32" />
+
+            <Button Grid.Row="3" Margin="0,0,20,0" FontFamily="Icons" BackgroundColor="{StaticResource green}" HeightRequest="48" WidthRequest="48"
+                TextColor="{StaticResource white}" Text="{x:Static icons:Icons.IconPeopleFull}"
+                HorizontalOptions="Center" VerticalOptions="Center" FontSize="20" Grid.Column="2" CornerRadius="24"
+                Clicked="PeopleClicked"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
