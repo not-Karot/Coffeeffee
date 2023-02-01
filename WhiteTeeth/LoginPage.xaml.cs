@@ -7,7 +7,8 @@ using Xamarin.Forms;
 using WhiteTeeth.Views;
 using Amazon.CognitoIdentity;
 using WhiteTeeth.ViewModels;
-
+using Xamarin.Essentials.Interfaces;
+using Xamarin.Essentials.Implementation;
 
 namespace WhiteTeeth
 {
@@ -15,9 +16,11 @@ namespace WhiteTeeth
     {
         public Dentist user;
         private DentistDetailsViewModel _dentistDetailsViewModel;
+        private readonly IWebAuthenticator _webAuthenticator;
         public LoginPage()
         {
             InitializeComponent();
+            _webAuthenticator = new WebAuthenticatorImplementation();
             _dentistDetailsViewModel = Startup.Resolve<DentistDetailsViewModel>();
             BindingContext = _dentistDetailsViewModel;
             
@@ -32,20 +35,20 @@ namespace WhiteTeeth
                 
                 var callbackUrl = new Uri("whiteteeth://");
 
-                var authResult = await WebAuthenticator.AuthenticateAsync(
+                var authResult = await _webAuthenticator.AuthenticateAsync(
                     url,
                     callbackUrl
                     );
                 var accessToken = authResult?.AccessToken;
                 user = await _dentistDetailsViewModel.GetUser(accessToken);
                 _dentistDetailsViewModel.LoadDentist(user.dentist_id.ToString());
-                /*
+                
                 Console.WriteLine(accessToken);
                 foreach (KeyValuePair<string, string> kvp in authResult.Properties)
                 {
                     Console.WriteLine("Key = {0}, Value = {1}", kvp.Key, kvp.Value);
                 }
-                */
+                
                 
             }
             catch(TaskCanceledException e)

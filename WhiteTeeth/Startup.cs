@@ -3,6 +3,8 @@ using System;
 using WhiteTeeth.Interfaces;
 using WhiteTeeth.Services;
 using WhiteTeeth.ViewModels;
+using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 
 namespace WhiteTeeth
 {
@@ -31,6 +33,10 @@ namespace WhiteTeeth
                 c.BaseAddress = new Uri("http://whitesite.fly.dev/");
                 c.DefaultRequestHeaders.Add("Accept", "application/json");
             });
+
+
+            services.AddSingleton<IWebAuthenticator, WebAuthenticatorImplementation>();
+
 
             //add viewmodels
             services.AddTransient<ClientsViewModel>();

@@ -1,8 +1,9 @@
 ﻿using System;
 using Plugin.SharedTransitions;
 using Xamarin.Forms;
-using Xamarin.Essentials.Interfaces;
+
 using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 
 
 namespace WhiteTeeth
